@@ -24,6 +24,8 @@ def login_page(col):
                 st.success(f"Welcome {user[0]}. You are logged in as {role}")
                 if role == "coach":
                     st.switch_page("pages/create_routine.py")
+                elif role == "caregiver":
+                    st.switch_page("pages/exercise_log.py")
             else:
                 st.error("Invalid login.")
         else:
