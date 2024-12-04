@@ -1,0 +1,11 @@
+streamlit
+requests
+google-generativeai
+regex
+streamlit-shadcn-ui
+streamlit-server-state
+SQLAlchemy
+seaborn
+streamlit-extras
+streamlit-player
+bcrypt
