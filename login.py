@@ -25,7 +25,7 @@ def login_page(col):
             if bcrypt.checkpw(password.encode(), user["password"].item()):
                 st.session_state["role"] = user[2]
                 st.success(f"Logged in as {user[2]}")
-            else
+            else:
                 st.error("Invalid login.")
         else:
             st.error("Invalid login.")
