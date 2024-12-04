@@ -11,7 +11,7 @@ def main():
     st.title("Exercise Routines")
 
     # Fetch all routines
-    routines = get_routines()
+    routines = fetch_routines()
 
     # Display routine selection
     if not routines.empty:
