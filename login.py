@@ -3,10 +3,8 @@ import sqlite3
 import bcrypt
 
 from database import initialize_database, get_user, add_user
-from state_manager import initialize_session_state
 
 initialize_database()
-initialize_session_state()
 
 # Session State for login
 if "role" not in st.session_state:
@@ -22,9 +20,7 @@ def login_page(col):
         if user is not None:
             if bcrypt.checkpw(password.encode(), user["password"]):
                 role = user[2]
-                st.session_state["username"] = user[0]
                 st.session_state["role"] = role
-                st.session_state["is_logged_in"] = True
                 st.success(f"Welcome {user[0]}. You are logged in as {role}")
                 
                 if role == "coach":
