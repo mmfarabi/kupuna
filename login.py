@@ -32,7 +32,7 @@ def register_page(col):
       password = st.text_input("Password", type="password")
       role = st.selectbox("Role", ["coach", "caregiver"])
       if st.button("Register"):
-        add_user(username, hashed_pw, role)
+        add_user(username, password, role)
         st.success("User registered successfully!")
       
 def main():
