@@ -57,7 +57,7 @@ def initialize_database():
         for row in csv_reader:
             cursor.execute('''
                 INSERT INTO users (username, password, role)
-                VALUES (?, ?, ?, ?)
+                VALUES (?, ?, ?)
             ''', (row['username'], bcrypt.hashpw(row['password'].encode(), bcrypt.gensalt()), row['role']))
           
         conn.commit()
