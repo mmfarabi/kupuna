@@ -163,7 +163,9 @@ def fetch_patients():
     SELECT id, name, age, gender, ethnicity
     FROM patients
     """
-    return pd.read_sql(query, conn)
+    patients = pd.read_sql(query, conn)
+    conn.close()
+    return patients
 
 def fetch_routines():
     conn = get_connection()
@@ -171,7 +173,9 @@ def fetch_routines():
     SELECT id, name, music
     FROM routines
     """
-    return pd.read_sql(query, conn)
+    routines = pd.read_sql(query, conn)
+    conn.close()
+    return routines
 
 def fetch_patient_routines():
     conn = get_connection()
@@ -181,7 +185,9 @@ def fetch_patient_routines():
     JOIN patients p ON pr.patient_id = p.id
     JOIN routines r ON pr.routine_id = r.id
     """
-    return pd.read_sql(query, conn)
+    patient_routines = pd.read_sql(query, conn)
+    conn.close()
+    return patient_routines
 
 def fetch_exercise_logs(patient_id, routine_id):
     conn = get_connection()
@@ -191,7 +197,9 @@ def fetch_exercise_logs(patient_id, routine_id):
     WHERE patient_id = ? AND routine_id = ?
     ORDER BY date_time
     """
-    return pd.read_sql(query, conn, params=(patient_id, routine_id))
+    exercise_logs = pd.read_sql(query, conn, params=(patient_id, routine_id))
+    conn.close()
+    return exercise_logs
 
 def add_user(username, password, role):
     password = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
@@ -208,4 +216,6 @@ def get_user(username):
     conn = get_connection()
     query = "SELECT username, password, role FROM users WHERE username = ?"
     df = pd.read_sql(query, conn, params=(username,))
-    return df.iloc[0] if not df.empty else None
+    user = df.iloc[0] if not df.empty else None
+    conn.close()
+    return user
