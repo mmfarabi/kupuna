@@ -201,6 +201,20 @@ def fetch_exercise_logs(patient_id, routine_id):
     conn.close()
     return exercise_logs
 
+@st.cache_data
+def get_exercises_for_routine(routine_id):
+    conn = get_connection()
+    query = """
+        SELECT e.name, e.description, e.phase, e.video
+        FROM exercises e
+        JOIN routine_exercises re ON e.id = re.exercise_id
+        WHERE re.routine_id = ?
+        ORDER BY e.phase
+    """
+    exercises = pd.read_sql(query, conn, params=(routine_id,))
+    conn.close()
+    return exercises
+    
 def add_user(username, password, role):
     password = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
     conn = get_connection()
