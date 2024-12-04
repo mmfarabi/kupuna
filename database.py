@@ -204,4 +204,4 @@ def add_user(username, password, role):
 def get_user(username):
     conn = get_connection()
     query = "SELECT username, password, role FROM users WHERE username = ?"
-    return pd.read_sql(query, conn, params=(username))
+    return pd.read_sql(query, conn, params=(username,))
