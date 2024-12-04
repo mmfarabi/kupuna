@@ -2,6 +2,9 @@ import streamlit as st
 
 from utils import check_login
 from database import fetch_routines, get_exercises_for_routine
+from state_manager import initialize_session_state
+
+initialize_session_state()
 
 def main():
     # Check login
