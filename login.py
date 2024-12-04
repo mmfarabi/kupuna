@@ -19,7 +19,7 @@ def login_page(col):
           
         if user is not None:
             if bcrypt.checkpw(password.encode(), user["password"]):
-                role = user.iloc(2)
+                role = user[2]
                 st.session_state["role"] = role
                 st.success(f"Welcome {user[0]}. You are logged in as {role}")
                 if role == "coach":
