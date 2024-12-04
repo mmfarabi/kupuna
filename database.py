@@ -55,10 +55,13 @@ def initialize_database():
         patients = os.getenv("USERS")
         csv_reader = csv.DictReader(StringIO(patients))
         for row in csv_reader:
-            cursor.execute('''
-                INSERT INTO users (username, password, role)
-                VALUES (?, ?, ?)
-            ''', (row['username'], bcrypt.hashpw(row['password'].encode(), bcrypt.gensalt()), row['role']))
+            try:
+                cursor.execute('''
+                    INSERT INTO users (username, password, role)
+                    VALUES (?, ?, ?)
+                ''', (row['username'], bcrypt.hashpw(row['password'].encode(), bcrypt.gensalt()), row['role']))
+            except:
+                continue
           
         conn.commit()
         conn.close()
