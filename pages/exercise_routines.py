@@ -6,7 +6,7 @@ from database import fetch_routines, get_exercises_for_routine
 def main():
     # Check login
     # check_login()
-    st.write(st.session_state["role"])
+    st.write(st.session_state)
     
     st.title("Exercise Routines")
 
