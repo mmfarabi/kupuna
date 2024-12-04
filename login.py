@@ -16,6 +16,11 @@ def login_page(col):
       password = st.text_input("Password", type="password")
       if st.button("Login"):
         user = get_user(username)
+
+        st.write(user)
+        st.write(user.shape)
+        st.write(user["password"])
+          
         if user and bcrypt.checkpw(password.encode(), user["password"].item()):
             st.session_state["role"] = user[2]
             st.success(f"Logged in as {user[2]}")
