@@ -20,7 +20,7 @@ def login_page(col):
         if user is not None:
             if bcrypt.checkpw(password.encode(), user["password"]):
                 st.session_state["role"] = user[2]
-                st.success(f"Logged in as {user[2]}")
+                st.success(f"Welcome {user[0]}. You are logged in as {user[2]}")
             else:
                 st.error("Invalid login.")
         else:
