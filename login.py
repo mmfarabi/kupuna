@@ -22,7 +22,7 @@ def register_page(col):
           pass
       
 def main():
-    _, center_col, _ = st.columns([1,2,1]) 
+    _, center, _ = st.columns([1,2,1])
     st.sidebar.title("Actions")
     option = st.sidebar.radio("Choose Action", ["Login", "Register"])
     if option == "Login":
