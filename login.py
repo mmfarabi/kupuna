@@ -19,8 +19,11 @@ def login_page(col):
           
         if user is not None:
             if bcrypt.checkpw(password.encode(), user["password"]):
-                st.session_state["role"] = user[2]
-                st.success(f"Welcome {user[0]}. You are logged in as {user[2]}")
+                role = user[2]
+                st.session_state["role"] = role
+                st.success(f"Welcome {user[0]}. You are logged in as {role}")
+                if role == "coach":
+                    st.switch_page("create_routine")
             else:
                 st.error("Invalid login.")
         else:
