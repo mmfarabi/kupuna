@@ -22,7 +22,7 @@ def login_page(col):
         st.write(user["password"])
           
         if user is not None:
-            if bcrypt.checkpw(password.encode(), user["password"].item()):
+            if bcrypt.checkpw(password.encode(), user["password"]):
                 st.session_state["role"] = user[2]
                 st.success(f"Logged in as {user[2]}")
             else:
