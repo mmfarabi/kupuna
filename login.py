@@ -2,6 +2,10 @@ import streamlit as st
 import sqlite3
 import bcrypt
 
+from database import initialize_database, get_user, add_user
+
+initialize_database()
+
 # Session State for login
 if "role" not in st.session_state:
     st.session_state["role"] = None
@@ -11,7 +15,12 @@ def login_page(col):
       username = st.text_input("Username")
       password = st.text_input("Password", type="password")
       if st.button("Login"):
-          pass
+        user = get_user(username)
+        if user and bcrypt.checkpw(password.encode(), user[1]):
+            st.session_state["role"] = user[2]
+            st.success(f"Logged in as {user[2]}")
+        else:
+            st.error("Invalid login.")
 
 def register_page(col):
     with col:
@@ -19,7 +28,8 @@ def register_page(col):
       password = st.text_input("Password", type="password")
       role = st.selectbox("Role", ["coach", "caregiver"])
       if st.button("Register"):
-          pass
+        add_user(username, hashed_pw, role)
+        st.success("User registered successfully!")
       
 def main():
     _, center, _ = st.columns([1,2,1])
