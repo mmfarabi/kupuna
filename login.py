@@ -23,7 +23,7 @@ def login_page(col):
                 st.session_state["role"] = role
                 st.success(f"Welcome {user[0]}. You are logged in as {role}")
                 if role == "coach":
-                    st.switch_page("create_routine.py")
+                    st.switch_page("pages/create_routine.py")
             else:
                 st.error("Invalid login.")
         else:
