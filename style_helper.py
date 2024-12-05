@@ -1,6 +1,8 @@
 import streamlit as st
 import os
 
+from streamlit_extras.stylable_container import stylable_container
+
 def apply_header():
   st.set_page_config(layout="wide", page_title="Kūpuna Care", page_icon="👵")
 
