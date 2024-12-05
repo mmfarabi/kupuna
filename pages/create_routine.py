@@ -80,11 +80,11 @@ def main():
     st.markdown(
       """
       <div class="button-grid">
-          <a href="assign_routine" class="button-card">
+          <a href="assign_routine" target="_self" class="button-card">
             <p>Assign Routine</p>
             <div class="icon">&#128116;</div>
           </a>
-          <a href="exercise_routines" class="button-card">
+          <a href="exercise_routines" target="_self" class="button-card">
             <p>View Routines</p>
             <div class="icon">&#128221;</div>
           </a>
