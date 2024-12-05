@@ -2,6 +2,8 @@ import streamlit as st
 
 from style_helper import apply_header
 
+from database import get_all_exercises, insert_routine
+
 def main():
     apply_header()
     st.title("Create Exercise Routine")
@@ -19,6 +21,9 @@ def main():
           </a>
       </div>
       """, unsafe_allow_html=True)
+
+    # Load exercise routines
+    exercise_data = get_all_exercises()
 
 if __name__ == "__main__":
     main()
