@@ -4,6 +4,26 @@ from style_helper import apply_header, card_container
 
 from database import get_all_exercises, insert_routine
 
+def routine_select(exercise_data):
+    left, right = st.columns(2)
+    # Mobility level selection
+    with left:
+        mobility_level = st.selectbox(
+            "Mobility level:",
+            exercise_data.keys()
+        )
+
+    with right:
+    # Length of routine selection
+        if mobility_level:
+            lengths = exercise_data[mobility_level].keys()
+            routine_length = st.selectbox(
+                "Routine length:",
+                lengths
+            )
+
+    return mobility_level, routine_length
+
 def main():
     apply_header()
     st.title("Create Exercise Routine")
