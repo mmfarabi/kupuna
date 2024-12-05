@@ -6,24 +6,29 @@ from database import fetch_routines, get_exercises_for_routine
 STYLE_CSS = os.getenv('STYLE_CSS')
 
 def main():    
-    st.title("Exercise Routines")
+    st.set_page_config(layout="wide", page_title="Kūpuna Care", page_icon="👵")
 
     st.markdown(STYLE_CSS, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="e2_21">
+      <div class="header-text-container">
+          <div class="e1_15">KŪPUNA CARE</div>
+          <div class="e2_23"></div>
+          <div class="e2_22">Lōkahi Innovation</div>
+      </div>
+      <div class="header-image">
+          <a href="app" target="_self">
+              <img src="https://raw.githubusercontent.com/datjandra/Team-Pu-u-Kukui/refs/heads/main/images/hawaii.png" alt="Header Image">
+          </a>
+      </div>
+  </div>
+    """, unsafe_allow_html=True)
+
+    st.title("Exercise Routines")
     
     st.markdown(
       """
-      <div class="e2_21">
-          <div class="header-text-container">
-              <div class="e1_15">KŪPUNA CARE</div>
-              <div class="e2_23"></div>
-              <div class="e2_22">Lōkahi Innovation</div>
-          </div>
-          <div class="header-image">
-              <a href="app" target="_self">
-                  <img src="https://raw.githubusercontent.com/datjandra/Team-Pu-u-Kukui/refs/heads/main/images/hawaii.png" alt="Header Image">
-              </a>
-          </div>
-      </div>
       <div class="button-grid">
           <a href="#" class="button-card">
             <p>Create Routine</p>
