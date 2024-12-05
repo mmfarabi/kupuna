@@ -4,8 +4,8 @@ import os
 import re
 import google.generativeai as genai
 
+from streamlit_player import st_player
 from style_helper import apply_header, card_container
-
 from database import get_all_exercises, insert_routine
 
 GEM_MODEL = os.getenv('GEM_MODEL')
