@@ -23,7 +23,6 @@ def main():
       </div>
       """, unsafe_allow_html=True)
 
-    
     # Fetch all routines
     routines = fetch_routines()
 
