@@ -18,9 +18,7 @@ def main():
           <div class="e2_22">Lōkahi Innovation</div>
       </div>
       <div class="header-image">
-          <a href="app" target="_self">
-              <img src="https://raw.githubusercontent.com/datjandra/Team-Pu-u-Kukui/refs/heads/main/images/hawaii.png" alt="Header Image">
-          </a>
+          <img src="https://raw.githubusercontent.com/datjandra/Team-Pu-u-Kukui/refs/heads/main/images/hawaii.png" alt="Header Image">
       </div>
   </div>
     """, unsafe_allow_html=True)
