@@ -1,3 +1,5 @@
+import streamlit as st
+
 def apply_header():
   st.set_page_config(layout="wide", page_title="Kūpuna Care", page_icon="👵")
 
