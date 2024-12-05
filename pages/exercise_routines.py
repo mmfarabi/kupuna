@@ -1,10 +1,15 @@
 import streamlit as st
+import os
 
 from database import fetch_routines, get_exercises_for_routine
+
+STYLE_CSS = os.getenv('STYLE_CSS')
 
 def main():    
     st.title("Exercise Routines")
 
+    st.markdown(STYLE_CSS, unsafe_allow_html=True)
+    
     st.markdown(
       """
       <div class="button-grid">
