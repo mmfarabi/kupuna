@@ -1,6 +1,6 @@
 import streamlit as st
 
-from style_helper import apply_header
+from style_helper import apply_header, card_container
 
 from database import get_all_exercises, insert_routine
 
