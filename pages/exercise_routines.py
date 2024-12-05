@@ -5,6 +5,25 @@ from database import fetch_routines, get_exercises_for_routine
 def main():    
     st.title("Exercise Routines")
 
+    st.markdown(
+      """
+      <div class="button-grid">
+          <a href="#" class="button-card">
+            <p>Create Routine</p>
+            <div class="icon">&#x1F57A;</div>
+          </a>
+          <div class="button-card">
+            <p>Assign Routine</p>
+            <div class="icon">&#128116;</div>
+          </div>
+          <div class="button-card">
+            <p>Exercise Log</p>
+            <div class="icon">&#128221;</div>
+          </div>
+      </div>
+      """, unsafe_allow_html=True)
+
+    
     # Fetch all routines
     routines = fetch_routines()
 
