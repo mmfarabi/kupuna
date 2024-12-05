@@ -1,10 +1,25 @@
 import streamlit as st
 import json
 import os
+import re
+import google.generativeai as genai
 
 from style_helper import apply_header, card_container
 
 from database import get_all_exercises, insert_routine
+
+GEM_MODEL = os.getenv('GEM_MODEL')
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
+
+genai.configure(api_key=GOOGLE_API_KEY)
+model = genai.GenerativeModel(
+    GEM_MODEL,
+    generation_config={
+        "temperature": 0.3,
+        "top_k": 40,
+        "top_p": 0.95
+    }
+)
 
 # Dictionary of songs and their corresponding YouTube links
 youtube_links = json.loads(os.getenv('YOUTUBE_LINKS'))
