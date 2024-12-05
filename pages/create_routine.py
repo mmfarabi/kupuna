@@ -25,5 +25,26 @@ def main():
     # Load exercise routines
     exercise_data = get_all_exercises()
 
+    st.sidebar.image("https://raw.githubusercontent.com/datjandra/kupuna/refs/heads/main/images/logo.png")
+    
+    # Input fields for dementia subject's details
+    st.sidebar.header("Subject Details")
+    age = st.sidebar.number_input("Age", min_value=18, max_value=120, value=65, step=1)
+    gender = st.sidebar.radio("Gender", ["Male", "Female", "Other"])
+    ethnicity = st.sidebar.selectbox(
+        "Ethnicity",
+        ["Caucasian", "Native Hawaiian or Pacific Islander", "Filipino", "Portuguese", "Japanese", "Chinese", "Other"]
+    )
+    if ethnicity == "Other":
+        other_ethnicity = st.sidebar.text_input("Please specify ethnicity")
+        if other_ethnicity:
+            ethnicity = other_ethnicity
+    
+    # Display the selected details in the sidebar for review
+    st.sidebar.markdown("### Subject Details Summary")
+    st.sidebar.markdown(f"**Age**: {age}")
+    st.sidebar.markdown(f"**Gender**: {gender}")
+    st.sidebar.markdown(f"**Ethnicity**: {ethnicity}")
+
 if __name__ == "__main__":
     main()
