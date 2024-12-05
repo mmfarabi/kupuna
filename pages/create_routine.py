@@ -99,7 +99,7 @@ def main():
     # Input fields for dementia subject's details
     st.sidebar.header("Subject Details")
     age = st.sidebar.number_input("Age", min_value=18, max_value=120, value=65, step=1)
-    gender = st.sidebar.radio("Gender", ["Male", "Female", "Other"])
+    gender = st.sidebar.radio("Gender", ["Kāne (Male)", "Wahine (Female)", "Other"])
     ethnicity = st.sidebar.selectbox(
         "Ethnicity",
         ["Caucasian", "Native Hawaiian or Pacific Islander", "Filipino", "Portuguese", "Japanese", "Chinese", "Other"]
