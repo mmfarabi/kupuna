@@ -1,27 +1,10 @@
 import streamlit as st
-import os
 
 from database import fetch_routines, get_exercises_for_routine
-
-STYLE_CSS = os.getenv('STYLE_CSS')
+from style_helper import apply_header
 
 def main():    
-    st.set_page_config(layout="wide", page_title="Kūpuna Care", page_icon="👵")
-
-    st.markdown(STYLE_CSS, unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="e2_21">
-      <div class="header-text-container">
-          <div class="e1_15">KŪPUNA CARE</div>
-          <div class="e2_23"></div>
-          <div class="e2_22">Lōkahi Innovation</div>
-      </div>
-      <div class="header-image">
-          <img src="https://raw.githubusercontent.com/datjandra/Team-Pu-u-Kukui/refs/heads/main/images/hawaii.png" alt="Header Image">
-      </div>
-  </div>
-    """, unsafe_allow_html=True)
+    apply_header()
 
     st.title("Exercise Routines")
     
