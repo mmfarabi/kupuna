@@ -97,7 +97,7 @@ def main():
     st.sidebar.image("https://raw.githubusercontent.com/datjandra/kupuna/refs/heads/main/images/logo.png")
     
     # Input fields for dementia subject's details
-    st.sidebar.header("Subject Details")
+    st.sidebar.header("Kupuna Details")
     age = st.sidebar.number_input("Age", min_value=18, max_value=120, value=65, step=1)
     gender = st.sidebar.radio("Gender", ["Kāne (Male)", "Wahine (Female)", "Other"])
     ethnicity = st.sidebar.selectbox(
@@ -110,7 +110,7 @@ def main():
             ethnicity = other_ethnicity
     
     # Display the selected details in the sidebar for review
-    st.sidebar.markdown("### Subject Details Summary")
+    st.sidebar.markdown("### Kupuna Summary")
     st.sidebar.markdown(f"**Age**: {age}")
     st.sidebar.markdown(f"**Gender**: {gender}")
     st.sidebar.markdown(f"**Ethnicity**: {ethnicity}")
