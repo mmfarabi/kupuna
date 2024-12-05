@@ -46,5 +46,15 @@ def main():
     st.sidebar.markdown(f"**Gender**: {gender}")
     st.sidebar.markdown(f"**Ethnicity**: {ethnicity}")
 
+    # Mobility level selection
+    mobility_level, routine_length = card_container(
+        "routine_selection",
+        routine_select,
+        exercise_data
+    )
+    
+    # Dictionary to store selected exercises
+    selected_exercises = {}
+
 if __name__ == "__main__":
     main()
