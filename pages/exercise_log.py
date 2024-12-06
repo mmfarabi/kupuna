@@ -59,8 +59,12 @@ def main():
             plt.ylabel('Mood Level')
             plt.xticks(rotation=45)
             st.pyplot(plt)
+
+            # Get the most recent date in the logs
+            max_logged_date = exercise_logs_df['date_time'].max().date()
         else:
             st.warning("No exercise log data available for the selected kūpuna and routine.")
+            max_logged_date = None
 
         st.sidebar.header('Log a New Exercise')
         date_input = st.sidebar.date_input('Date')
@@ -70,12 +74,15 @@ def main():
 
         # Button to save the new exercise log entry
         if st.sidebar.button('Enter Exercise Log'):
-            try:
-                insert_exercise_log(selected_patient_id, selected_routine_id, date_input, duration_input, mood_level_input, comments_input)
-                st.sidebar.success('Exercise log saved successfully!')
-                st.rerun()
-            except sqlite3.IntegrityError:
-                st.sidebar.error("Please change the date, an exercise entry with the same exact date and time already exists.")
+            if max_logged_date and date_input <= max_logged_date:
+                st.sidebar.error(f"Date must be greater than the most recent exercise date: {max_logged_date}")
+            else:
+                try:
+                    insert_exercise_log(selected_patient_id, selected_routine_id, date_input, duration_input, mood_level_input, comments_input)
+                    st.sidebar.success('Exercise log saved successfully!')
+                    st.rerun()
+                except sqlite3.IntegrityError:
+                    st.sidebar.error("Please change the date, an exercise entry with the same exact date and time already exists.")
     else:
         st.warning("Please select a kūpuna and routine combination to track mood levels and log data.")        
 
