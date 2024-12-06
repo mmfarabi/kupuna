@@ -29,7 +29,7 @@ def main():
     with left:
         st.header('Kūpunas')
         patients_df = fetch_patients()
-        st.dataframe(patients_df)
+        ui.table(data=patients_df)
         
     # Display routines
     with right:
