@@ -20,7 +20,9 @@ def main():
           </a>
       </div>
       """, unsafe_allow_html=True)
-  
+
+    st.sidebar.image("https://raw.githubusercontent.com/datjandra/kupuna/refs/heads/main/images/logo.png")
+    
     left, right = st.columns(2)
 
 if __name__ == "__main__":
