@@ -26,7 +26,7 @@ def main():
     left, right = st.columns(2)
     # Display patients
     with left:
-        st.header('Kupunas')
+        st.header('Kūpunas')
         patients_df = fetch_patients()
         st.dataframe(patients_df)
         
@@ -42,10 +42,10 @@ def main():
         patients_dict = {row['id']: row['name'] for _, row in patients_df.iterrows()}
         routines_dict = {row['id']: row['name'] for _, row in routines_df.iterrows()}
         
-        st.sidebar.header('Assign a Routine to a Kupuna')
+        st.sidebar.header('Assign a Routine to a Kūpuna')
         
         # Use names in selectbox and pass IDs to the assign function
-        selected_patient_name = st.sidebar.selectbox('Select a patient', options=list(patients_dict.values()))
+        selected_patient_name = st.sidebar.selectbox('Select a kūpuna', options=list(patients_dict.values()))
         selected_routine_name = st.sidebar.selectbox('Select a routine', options=list(routines_dict.values()))
 
         # Get the corresponding IDs for the selected patient and routine
@@ -60,12 +60,12 @@ def main():
             # Button to assign the routine to the patient (in the sidebar)
             if st.sidebar.button('Assign Routine'):
                 assign_patient_to_routine(selected_patient_id, selected_routine_id)
-                st.sidebar.success(f"Routine '{selected_routine_name}' assigned to patient '{selected_patient_name}'.")
+                st.sidebar.success(f"Routine '{selected_routine_name}' assigned to kūpuna '{selected_patient_name}'.")
                 st.balloons()
         else:
-            st.sidebar.warning("Please select a valid kupuna and routine.")
+            st.sidebar.warning("Please select a valid kūpuna and routine.")
     else:
-        st.warning("Unable to assign routine as kupuna or routine data is missing.")
+        st.warning("Unable to assign routine as kūpuna or routine data is missing.")
 
 if __name__ == "__main__":
     main()
