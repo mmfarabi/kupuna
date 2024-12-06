@@ -161,6 +161,7 @@ def main():
                     st.video(exercise['video'])
     
         # Button to generate exercise routine
+        music_titles = []
         if st.button("Create Routine"):
             st.subheader("Generated Routine")
             all_sections_selected = all(value is not None for value in selected_exercises.values())
