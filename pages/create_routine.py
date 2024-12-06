@@ -226,6 +226,7 @@ def main():
                                 title="Routine Created", 
                                 description=f'Routine {routine_name} has been created. Please click "Assign Routine" button to assign routine to a kūpuna.', 
                                 confirm_label="OK", 
+                                cancel_label="Cancel",
                                 key="routine_created_dialog")
 
 
