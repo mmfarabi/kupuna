@@ -97,7 +97,7 @@ def main():
     st.sidebar.image("https://raw.githubusercontent.com/datjandra/kupuna/refs/heads/main/images/logo.png")
     
     # Input fields for dementia subject's details
-    st.sidebar.header("Kupuna Details")
+    st.sidebar.header("Kūpuna Details")
     age = st.sidebar.number_input("Age", min_value=18, max_value=120, value=65, step=1)
     gender = st.sidebar.radio("Gender", ["Kāne (Male)", "Wahine (Female)", "Other"])
     ethnicity = st.sidebar.selectbox(
@@ -110,7 +110,7 @@ def main():
             ethnicity = other_ethnicity
     
     # Display the selected details in the sidebar for review
-    st.sidebar.markdown("### Kupuna Summary")
+    st.sidebar.markdown("### Kūpuna Summary")
     st.sidebar.markdown(f"**Age**: {age}")
     st.sidebar.markdown(f"**Gender**: {gender}")
     st.sidebar.markdown(f"**Ethnicity**: {ethnicity}")
@@ -181,7 +181,7 @@ def main():
                     st.markdown("### 🎵 Therapeutic Music")
     
                     # Subject Demographics Section
-                    st.markdown("#### 👤 Subject Details")
+                    st.markdown("#### 👤 Kūpuna Details")
                     st.markdown(f"- **Age**: {age}")
                     st.markdown(f"- **Gender**: {gender}")
                     st.markdown(f"- **Ethnicity**: {ethnicity}")
@@ -231,7 +231,6 @@ def main():
                     playlist = create_playlist(routine_name, routine_description)
                     for music_title, video_id in playlist:
                         add_to_playlist(playlist, video_id)
-
 
 if __name__ == "__main__":
     main()
