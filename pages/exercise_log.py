@@ -58,7 +58,7 @@ def main():
         if not exercise_logs_df.empty:
             exercise_logs_df['date_time'] = pd.to_datetime(exercise_logs_df['date_time'])
             plt.figure(figsize=(10, 6))
-            sns.lineplot(x='date_time', y='mood_level', data=exercise_logs_df, marker='o')
+            sns.lineplot(x='date_time', y='mood_level', data=exercise_logs_df, marker='o', color='#FF3583')
             plt.title(f'Mood Level Over Time for {selected_patient_name} - {selected_routine_name}')
             plt.xlabel('Date')
             plt.ylabel('Mood Level')
