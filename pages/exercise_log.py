@@ -24,5 +24,14 @@ def main():
 
     st.sidebar.image("https://raw.githubusercontent.com/datjandra/kupuna/refs/heads/main/images/logo.png")
 
+    # Fetch available routines and patients
+    patients_df = fetch_patients()
+    routines_df = fetch_routines()
+    patient_routines_df = fetch_patient_routines()
+    
+    # Display patient and routine data in the main area
+    st.header('Kūpuna and Routine Information')
+    st.dataframe(patient_routines_df)
+
 if __name__ == "__main__":
     main()
