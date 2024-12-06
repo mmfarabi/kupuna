@@ -19,6 +19,10 @@ def main():
             <p>View Routines</p>
             <div class="icon">&#128221;</div>
           </a>
+          <a href="dementia_info" target="_self" class="button-card">
+            <p>Dementia Info</p>
+            <div class="icon">&#128106;</div>
+          </a>
       </div>
       """, unsafe_allow_html=True)
 
