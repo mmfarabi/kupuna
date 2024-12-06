@@ -35,7 +35,7 @@ def main():
     patient_routines_df = fetch_patient_routines()
     
     # Display patient and routine data in the main area
-    st.header('Kūpunas and Routines')
+    st.header('Kūpunas Assigned to Routines')
     ui.table(data=patient_routines_df)
 
     # Move the patient-routine selection to the sidebar
