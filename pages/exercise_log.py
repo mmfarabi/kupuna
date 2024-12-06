@@ -62,6 +62,13 @@ def main():
         else:
             st.warning("No exercise log data available for the selected kūpuna and routine.")
 
+        st.sidebar.header('Log a New Exercise')
+        date_input = st.sidebar.date_input('Date')
+        duration_input = st.sidebar.number_input('Duration (minutes)', min_value=15)
+        mood_level_input = st.sidebar.selectbox('Mood Level', [1, 2, 3, 4, 5])
+        comments_input = st.sidebar.text_area('Comments (optional)', '')
+
+
 
 if __name__ == "__main__":
     main()
