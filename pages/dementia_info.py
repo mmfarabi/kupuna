@@ -11,11 +11,11 @@ def main():
       <div class="button-grid">
           <a href="exercise_routines" target="_self" class="button-card">
             <p>View Routines</p>
-            <div class="icon">&#128221;</div>
+            <div class="icon">&#129488;</div>
           </a>
           <a href="exercise_log" target="_self" class="button-card">
             <p>Exercise Log</p>
-            <div class="icon">&#128221;</div>
+            <div class="icon">&#128200;</div>
           </a>
       </div>
       """, unsafe_allow_html=True)
