@@ -56,9 +56,10 @@ def main():
     else:
         register_page(center)
 
-    with st.expander("Test Users"):
-        st.code("Username: don\nPassword: password\nRole: coach")        
-        st.code("Username: deb\nPassword: password\nRole: caregiver")
+    with center:
+        with st.expander("Test Users"):
+            st.code("Username: don\nPassword: password\nRole: coach")        
+            st.code("Username: deb\nPassword: password\nRole: caregiver")
 
 if __name__ == "__main__":
     main()
