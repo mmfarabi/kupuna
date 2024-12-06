@@ -3,6 +3,7 @@ import json
 import os
 import re
 import google.generativeai as genai
+import streamlit_shadcn_ui as ui
 
 from streamlit_player import st_player
 from style_helper import apply_header, card_container
@@ -221,7 +222,12 @@ def main():
             else:
                 exercise_ids = [int(exercise["id"]) for exercise in selected_exercises.values()]
                 insert_routine(routine_name, music_field, [1])
-                st.success(f"Routine {routine_name} has been created!")
-                st.balloons()
+                ui.alert_dialog(show=True, 
+                                title="Routine Created", 
+                                description=f'Routine {routine_name} has been created. Please click "Assign Routine" button to assign routine to a kūpuna.', 
+                                confirm_label="OK", 
+                                key="routine_created_dialog")
+
+
 if __name__ == "__main__":
     main()
