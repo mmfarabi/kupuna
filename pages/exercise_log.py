@@ -33,5 +33,13 @@ def main():
     st.header('Kūpunas and Routines')
     st.dataframe(patient_routines_df)
 
+    # Move the patient-routine selection to the sidebar
+    st.sidebar.header('Select a Kūpuna and Routine')
+    selected_patient_routine = st.sidebar.selectbox(
+        'Select a kūpuna and routine combination',
+        patient_routines_df['patient_name'] + ' - ' + patient_routines_df['routine_name'],
+        index=None  # Set default to no selection
+    )
+
 if __name__ == "__main__":
     main()
