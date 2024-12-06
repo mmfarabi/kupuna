@@ -63,7 +63,7 @@ def main():
                 assign_patient_to_routine(selected_patient_id, selected_routine_id)
                 ui.alert_dialog(show=True, 
                                 title="Routine Created", 
-                                description=f'Routine {routine_name} assigned to {selected_patient_name}. Please inform the caregiver to start logging the exercises.', 
+                                description=f'Routine {selected_routine_name} assigned to {selected_patient_name}. Please inform the caregiver to start logging the exercises.', 
                                 confirm_label="OK", 
                                 cancel_label="Cancel",
                                 key="routine_assigned_dialog")
