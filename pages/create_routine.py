@@ -38,7 +38,7 @@ def normalize_text(text):
     return re.sub(r"[\u2018\u2019\u02BB']", "", text).lower()
 
 def find_music_links(markdown_text):
-     music_titles = []
+    music_titles = []
     
     # Normalize markdown text for case-insensitive matching
     markdown_text_normalized = normalize_text(markdown_text)
