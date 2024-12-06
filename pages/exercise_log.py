@@ -1,5 +1,10 @@
 import streamlit as st
+import sqlite3
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
 
+from database import fetch_routines, fetch_patients, fetch_patient_routines, fetch_exercise_logs, insert_exercise_log
 from style_helper import apply_header
 
 def main():
