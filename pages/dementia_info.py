@@ -33,7 +33,7 @@ def main():
     # Main content
     st.title("Understanding Dementia")
 
-    t.markdown("""
+    st.markdown("""
     ### What is Dementia?
     Dementia is not a specific disease but a general term for a decline in mental ability severe enough to interfere with daily life. Memory loss is a common symptom.
 
