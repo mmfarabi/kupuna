@@ -70,7 +70,7 @@ def main():
             ui.table(data=exercise_logs_df)
             
             # Get the most recent date in the logs
-            max_logged_date = exercise_logs_df['date_time'].max().date()
+            max_logged_date = exercise_logs_copy['date_time'].max().date()
         else:
             st.warning("No exercise log data available for the selected kūpuna and routine.")
             max_logged_date = None
