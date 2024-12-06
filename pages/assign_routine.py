@@ -35,7 +35,7 @@ def main():
     with right:
         st.header('Routines')
         routines_df = fetch_routines()
-        st.dataframe(routines_df)
+        ui.table(data=routines_df)
         
     # Proceed if both patients and routines are available
     if not patients_df.empty and not routines_df.empty:
