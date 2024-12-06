@@ -34,7 +34,6 @@ def main():
     st.dataframe(patient_routines_df)
 
     # Move the patient-routine selection to the sidebar
-    st.sidebar.header('Select a Kūpuna and Routine')
     selected_patient_routine = st.sidebar.selectbox(
         'Select a kūpuna and routine combination',
         patient_routines_df['patient_name'] + ' - ' + patient_routines_df['routine_name'],
