@@ -38,7 +38,7 @@ def normalize_text(text):
     return re.sub(r"[\u2018\u2019\u02BB']", "", text).lower()
 
 def find_music_links(markdown_text):
-    music_links = []
+     music_titles = []
     
     # Normalize markdown text for case-insensitive matching
     markdown_text_normalized = normalize_text(markdown_text)
@@ -50,9 +50,9 @@ def find_music_links(markdown_text):
             # Print only if a match is found
             st.write(title)
             st_player(f'https://www.youtube.com/watch?v={video_id}')
-            music_links.append(video_id)
+            music_titles.append(title)
 
-    return music_links
+    return music_titles
 
 def routine_select(exercise_data):
     left, right = st.columns(2)
@@ -194,7 +194,7 @@ def main():
                     st.divider()
 
                     st.markdown("#### 📺 YouTube Videos")
-                    music_links = find_music_links(playlist)
+                    music_titles = find_music_links(playlist)
     
         # Form below the routine generation button
         with st.form(key="routine_form"):
@@ -207,7 +207,7 @@ def main():
             routine_description = st.text_area("Routine Description (Optional)", "")
             
             # Optional music field (optional)
-            music_field = st.text_input("Optional Music", "")
+            music_field = st.text_input("Optional Music", ", ".join(music_titles))
         
             # Read-only field for selected exercise IDs
             exercise_ids_string = ", ".join([str(exercise["id"]) for exercise in selected_exercises.values()])
