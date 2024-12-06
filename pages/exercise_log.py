@@ -68,7 +68,16 @@ def main():
         mood_level_input = st.sidebar.selectbox('Mood Level', [1, 2, 3, 4, 5])
         comments_input = st.sidebar.text_area('Comments (optional)', '')
 
-
+        # Button to save the new exercise log entry
+        if st.sidebar.button('Enter Exercise Log'):
+            try:
+                insert_exercise_log(selected_patient_id, selected_routine_id, date_input, duration_input, mood_level_input, comments_input)
+                st.sidebar.success('Exercise log saved successfully!')
+                st.rerun()
+            except sqlite3.IntegrityError:
+                st.sidebar.error("Please change the date, an exercise entry with the same exact date and time already exists.")
+    else:
+        st.warning("Please select a kūpuna and routine combination to track mood levels and log data.")        
 
 if __name__ == "__main__":
     main()
