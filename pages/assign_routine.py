@@ -29,7 +29,7 @@ def main():
         st.header('Patients')
         patients_df = fetch_patients()
         st.dataframe(patients_df)
-    
+        
     # Display routines
     with right:
         st.header('Routines')
