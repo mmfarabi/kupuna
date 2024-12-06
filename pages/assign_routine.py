@@ -12,7 +12,7 @@ def main():
       <div class="button-grid">
           <a href="create_routine" target="_self" class="button-card">
             <p>Create Routine</p>
-            <div class="icon">&#128116;</div>
+            <div class="icon">&#x1F57A;</div>
           </a>
           <a href="exercise_routines" target="_self" class="button-card">
             <p>View Routines</p>
