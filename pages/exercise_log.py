@@ -55,8 +55,6 @@ def main():
         # Plot the mood levels over time for the selected patient and routine
         st.header('Mood Level Over Time')
         exercise_logs_df = fetch_exercise_logs(selected_patient_id, selected_routine_id)
-        st.header(f'Exercise log for {selected_patient_name} and routine {selected_routine_name}')
-        ui.table(data=exercise_logs_df)
 
         if not exercise_logs_df.empty:
             exercise_logs_df['date_time'] = pd.to_datetime(exercise_logs_df['date_time'])
@@ -68,6 +66,8 @@ def main():
             plt.xticks(rotation=45)
             st.pyplot(plt)
 
+            ui.table(data=exercise_logs_df)
+            
             # Get the most recent date in the logs
             max_logged_date = exercise_logs_df['date_time'].max().date()
         else:
@@ -90,17 +90,10 @@ def main():
                                 cancel_label="Cancel",
                                 key="routine_created_dialog")
             else:
-                try:
-                    insert_exercise_log(selected_patient_id, selected_routine_id, date_input, duration_input, mood_level_input, comments_input)
-                    st.sidebar.success('Exercise log saved successfully!')
-                    st.rerun()
-                except sqlite3.IntegrityError:
-                    ui.alert_dialog(show=True, 
-                                title="Invalid Date", 
-                                description="Please change the date, an exercise entry with the same exact date and time already exists.", 
-                                confirm_label="OK", 
-                                cancel_label="Cancel",
-                                key="routine_created_dialog")
+                insert_exercise_log(selected_patient_id, selected_routine_id, date_input, duration_input, mood_level_input, comments_input)
+                st.sidebar.success('Exercise log saved successfully!')
+                st.rerun()
+                
     else:
         st.warning("Please select a kūpuna and routine combination to track mood levels and log data.")        
 
