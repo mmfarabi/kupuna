@@ -11,18 +11,18 @@ def main():
     st.markdown(
       """
       <div class="button-grid">
-          <a href="#" class="button-card">
+          <a href="create_routine" target="_self" class="button-card">
             <p>Create Routine</p>
             <div class="icon">&#x1F57A;</div>
           </a>
-          <div class="button-card">
+          <a href="assign_routine" target="_self" class="button-card">
             <p>Assign Routine</p>
             <div class="icon">&#128116;</div>
-          </div>
-          <div class="button-card">
+          </a>
+          <a href="exercise_log" target="_self" class="button-card">
             <p>Exercise Log</p>
             <div class="icon">&#128221;</div>
-          </div>
+          </a>
       </div>
       """, unsafe_allow_html=True)
 
