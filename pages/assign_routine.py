@@ -44,7 +44,7 @@ def main():
         
         st.sidebar.header('Assign a Routine to a Kupuna')
         
-        # Use names in selectbox and pass IDs to the assign function
+        # Use names in selectbox and pass IDs to the assign function
         selected_patient_name = st.sidebar.selectbox('Select a patient', options=list(patients_dict.values()))
         selected_routine_name = st.sidebar.selectbox('Select a routine', options=list(routines_dict.values()))
 
