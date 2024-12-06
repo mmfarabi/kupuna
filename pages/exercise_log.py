@@ -30,7 +30,7 @@ def main():
     patient_routines_df = fetch_patient_routines()
     
     # Display patient and routine data in the main area
-    st.header('Kūpuna and Routine Information')
+    st.header('Kūpunas and Routines')
     st.dataframe(patient_routines_df)
 
 if __name__ == "__main__":
