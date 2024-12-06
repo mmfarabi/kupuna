@@ -53,7 +53,7 @@ def main():
     - **Lewy body dementia**: Associated with abnormal protein deposits in the brain.
     - **Frontotemporal dementia**: Affects the brain areas related to behavior and language.
 
-    Dementia affects people worldwide, regardless of culture, but family and community play key roles in caregiving, just like in Hawaii’s `ohana`.
+    Dementia affects people worldwide, regardless of culture, but family and community play key roles in caregiving, just like in Hawaiʻi’s `ohana`.
 
     ---
 
