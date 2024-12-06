@@ -40,7 +40,7 @@ def main():
 
     # Move the patient-routine selection to the sidebar
     selected_patient_routine = st.sidebar.selectbox(
-        'Select a kūpuna and routine combination',
+        'Select a kūpuna and assigned routine',
         patient_routines_df['patient_name'] + ' - ' + patient_routines_df['routine_name'],
         index=None  # Set default to no selection
     )
