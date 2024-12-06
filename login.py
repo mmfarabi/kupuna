@@ -5,12 +5,6 @@ import bcrypt
 from style_helper import apply_header
 from database import initialize_database, get_user, add_user
 
-initialize_database()
-
-# Session State for login
-if "role" not in st.session_state:
-    st.session_state["role"] = None
-
 def login_page(col):
     with col:
       username = st.text_input("Username")
@@ -44,6 +38,12 @@ def register_page(col):
       
 def main():
     apply_header()
+
+    initialize_database()
+
+    # Session State for login
+    if "role" not in st.session_state:
+        st.session_state["role"] = None
     
     _, center, _ = st.columns([1,2,1])
     center.title("Mock Login")
