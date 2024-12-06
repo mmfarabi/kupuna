@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit_shadcn_ui as ui
 
 from style_helper import apply_header, card_container
 from database import fetch_patients, fetch_routines, assign_patient_to_routine
@@ -60,8 +61,13 @@ def main():
             # Button to assign the routine to the patient (in the sidebar)
             if st.sidebar.button('Assign Routine'):
                 assign_patient_to_routine(selected_patient_id, selected_routine_id)
-                st.sidebar.success(f"Routine '{selected_routine_name}' assigned to kūpuna '{selected_patient_name}'.")
-                st.balloons()
+                ui.alert_dialog(show=True, 
+                                title="Routine Created", 
+                                description=f'Routine {routine_name} assigned to {selected_patient_name}. Please inform the caregiver to start logging the exercises.', 
+                                confirm_label="OK", 
+                                cancel_label="Cancel",
+                                key="routine_assigned_dialog")
+
         else:
             st.sidebar.warning("Please select a valid kūpuna and routine.")
     else:
