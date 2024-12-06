@@ -52,8 +52,8 @@ def initialize_database():
             ''', (row['name'], int(row['age']), row['gender'], row['ethnicity']))
 
         # Insert test users
-        patients = os.getenv("USERS")
-        csv_reader = csv.DictReader(StringIO(patients))
+        users = os.getenv("USERS")
+        csv_reader = csv.DictReader(StringIO(users))
         for row in csv_reader:
             try:
                 cursor.execute('''
