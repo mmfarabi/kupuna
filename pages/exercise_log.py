@@ -55,11 +55,12 @@ def main():
         # Plot the mood levels over time for the selected patient and routine
         st.header('Mood Level Over Time')
         exercise_logs_df = fetch_exercise_logs(selected_patient_id, selected_routine_id)
+        exercise_logs_copy = exercise_logs_df.copy()
 
-        if not exercise_logs_df.empty:
-            exercise_logs_df['date_time'] = pd.to_datetime(exercise_logs_df['date_time'])
+        if not exercise_logs_copy.empty:
+            exercise_logs_copy['date_time'] = pd.to_datetime(exercise_logs_copy['date_time'])
             plt.figure(figsize=(10, 6))
-            sns.lineplot(x='date_time', y='mood_level', data=exercise_logs_df, marker='o', color='#FF3583')
+            sns.lineplot(x='date_time', y='mood_level', data=exercise_logs_copy, marker='o', color='#FF3583')
             plt.title(f'Mood Level Over Time for {selected_patient_name} - {selected_routine_name}')
             plt.xlabel('Date')
             plt.ylabel('Mood Level')
