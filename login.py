@@ -43,6 +43,9 @@ def register_page(col):
       
 def main():
     _, center, _ = st.columns([1,2,1])
+    center.title("Mock Login")
+
+    st.sidebar.image("https://raw.githubusercontent.com/datjandra/kupuna/refs/heads/main/images/logo.png")
     st.sidebar.title("Actions")
     option = st.sidebar.radio("Choose Action", ["Login", "Register"])
     if option == "Login":
