@@ -3,6 +3,7 @@ import sqlite3
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import streamlit_shadcn_ui as ui
 
 from database import fetch_routines, fetch_patients, fetch_patient_routines, fetch_exercise_logs, insert_exercise_log
 from style_helper import apply_header
@@ -35,7 +36,7 @@ def main():
     
     # Display patient and routine data in the main area
     st.header('Kūpunas and Routines')
-    st.dataframe(patient_routines_df)
+    ui.table(data=patient_routines_df)
 
     # Move the patient-routine selection to the sidebar
     selected_patient_routine = st.sidebar.selectbox(
