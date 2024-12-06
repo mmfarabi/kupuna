@@ -2,6 +2,7 @@ import streamlit as st
 import sqlite3
 import bcrypt
 
+from style_helper import apply_header
 from database import initialize_database, get_user, add_user
 
 initialize_database()
@@ -42,6 +43,8 @@ def register_page(col):
         st.success("User registered successfully!")
       
 def main():
+    apply_header()
+    
     _, center, _ = st.columns([1,2,1])
     center.title("Mock Login")
 
@@ -52,6 +55,10 @@ def main():
         login_page(center)
     else:
         register_page(center)
+
+    with st.expander("Test Users"):
+        st.code("Username: don\nPassword: password\nRole: coach")        
+        st.code("Username: deb\nPassword: password\nRole: caregiver")
 
 if __name__ == "__main__":
     main()
