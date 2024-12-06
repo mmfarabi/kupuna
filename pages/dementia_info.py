@@ -4,7 +4,7 @@ from style_helper import apply_header, card_container
 
 def main():    
     apply_header()
-    st.title("Dementia Info")
+    st.title("Understanding Dementia")
 
     st.markdown(
       """
@@ -29,9 +29,6 @@ def main():
     - [Alzheimer's Association](https://www.alz.org/)
     - [Alzheimer's Disease International](https://www.alzint.org/)
     """)
-
-    # Main content
-    st.title("Understanding Dementia")
 
     st.markdown("""
     ### What is Dementia?
