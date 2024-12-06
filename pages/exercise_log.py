@@ -40,5 +40,28 @@ def main():
         index=None  # Set default to no selection
     )
 
+    # Check if a selection has been made
+    if selected_patient_routine:
+        # Extract selected patient and routine IDs
+        selected_patient_name, selected_routine_name = selected_patient_routine.split(' - ')
+        selected_patient_id = patient_routines_df.loc[patient_routines_df['patient_name'] == selected_patient_name, 'patient_id'].values[0]
+        selected_routine_id = patient_routines_df.loc[patient_routines_df['routine_name'] == selected_routine_name, 'routine_id'].values[0]
+    
+        # Plot the mood levels over time for the selected patient and routine
+        st.header('Mood Level Over Time')
+        exercise_logs_df = fetch_exercise_logs(selected_patient_id, selected_routine_id)
+        if not exercise_logs_df.empty:
+            exercise_logs_df['date_time'] = pd.to_datetime(exercise_logs_df['date_time'])
+            plt.figure(figsize=(10, 6))
+            sns.lineplot(x='date_time', y='mood_level', data=exercise_logs_df, marker='o')
+            plt.title(f'Mood Level Over Time for {selected_patient_name} - {selected_routine_name}')
+            plt.xlabel('Date')
+            plt.ylabel('Mood Level')
+            plt.xticks(rotation=45)
+            st.pyplot(plt)
+        else:
+            st.warning("No exercise log data available for the selected kūpuna and routine.")
+
+
 if __name__ == "__main__":
     main()
