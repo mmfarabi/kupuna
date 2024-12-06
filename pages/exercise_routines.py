@@ -21,7 +21,7 @@ def main():
           </a>
           <a href="exercise_log" target="_self" class="button-card">
             <p>Exercise Log</p>
-            <div class="icon">&#128221;</div>
+            <div class="icon">&#128200;</div>
           </a>
       </div>
       """, unsafe_allow_html=True)
