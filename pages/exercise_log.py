@@ -57,7 +57,7 @@ def main():
         exercise_logs_df = fetch_exercise_logs(selected_patient_id, selected_routine_id)
         st.header(f'Exercise log for {selected_patient_name} and routine {selected_routine_name}')
         ui.table(data=exercise_logs_df)
-        
+
         if not exercise_logs_df.empty:
             exercise_logs_df['date_time'] = pd.to_datetime(exercise_logs_df['date_time'])
             plt.figure(figsize=(10, 6))
