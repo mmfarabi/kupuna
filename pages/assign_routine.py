@@ -62,7 +62,7 @@ def main():
             if st.sidebar.button('Assign Routine'):
                 assign_patient_to_routine(selected_patient_id, selected_routine_id)
                 ui.alert_dialog(show=True, 
-                                title=f"Routine Assgined to {selected_patient_name}", 
+                                title=f"Routine Assigned to {selected_patient_name}", 
                                 description=f'Routine {selected_routine_name} has been assigned. Please inform the caregiver to start logging the exercises.', 
                                 confirm_label="OK", 
                                 cancel_label="Cancel",
