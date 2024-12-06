@@ -212,9 +212,6 @@ def main():
             exercise_ids_string = ", ".join([str(exercise["id"]) for exercise in selected_exercises.values()])
             st.text_input("Selected Exercise IDs", value=exercise_ids_string, disabled=True)
 
-            # Checkbox to create a YouTube playlist
-            create_playlist = st.checkbox("Create Playlist")
-
             # Submit button for the form
             submit_button = st.form_submit_button(label="Save Routine")
             
@@ -226,11 +223,5 @@ def main():
                 insert_routine(routine_name, music_field, [1])
                 st.success(f"Routine {routine_name} has been created!")
                 st.balloons()
-
-                if create_playlist:
-                    playlist = create_playlist(routine_name, routine_description)
-                    for music_title, video_id in playlist:
-                        add_to_playlist(playlist, video_id)
-
 if __name__ == "__main__":
     main()
