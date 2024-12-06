@@ -25,16 +25,16 @@ def main():
     
     left, right = st.columns(2)
     # Display patients
-    with left:
-        st.header('Patients')
-        patients_df = fetch_patients()
-        st.dataframe(patients_df)
+    with left:
+        st.header('Patients')
+        patients_df = fetch_patients()
+        st.dataframe(patients_df)
     
-    # Display routines
-    with right:
-        st.header('Routines')
-        routines_df = fetch_routines()
-        st.dataframe(routines_df)
+    # Display routines
+    with right:
+        st.header('Routines')
+        routines_df = fetch_routines()
+        st.dataframe(routines_df)
 
 if __name__ == "__main__":
     main()
