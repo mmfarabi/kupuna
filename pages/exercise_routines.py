@@ -29,9 +29,11 @@ def main():
     # Fetch all routines
     routines = fetch_routines()
 
+    st.sidebar.image("https://raw.githubusercontent.com/datjandra/kupuna/refs/heads/main/images/logo.png")
+    
     # Display routine selection
     if not routines.empty:
-        routine_id = st.selectbox(
+        routine_id = st.sidebar.selectbox(
             "Select a Routine",
             options=routines["id"],
             format_func=lambda rid: routines.loc[routines["id"] == rid, "name"].values[0]
