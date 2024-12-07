@@ -198,7 +198,7 @@ def main():
                     st.markdown("#### 📺 YouTube Videos")
                     # music_titles = find_music_links(playlist)
                     music_titles = "test"
-                    st.session_state.set("music_field", music_titles)
+                    st.session_state["music_field"] = music_titles
         else:
             music_titles = None
         
