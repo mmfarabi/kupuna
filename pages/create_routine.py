@@ -222,7 +222,7 @@ def main():
                 st.error("Routine name is required!")
             else:
                 exercise_ids = [int(exercise["id"]) for exercise in selected_exercises.values()]
-                insert_routine(routine_name, music_field, [1])
+                insert_routine(routine_name, music_field, exercise_ids)
                 ui.alert_dialog(show=True, 
                                 title="Routine Created", 
                                 description=f'Routine {routine_name} has been created. Please click "Assign Routine" button to assign routine to a kūpuna.', 
