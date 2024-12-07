@@ -42,15 +42,6 @@ def initialize_database():
                             VALUES (?, ?, ?, ?, ?, ?)
                         ''', (mobility, length, phase, exercise['name'], exercise['description'], exercise['video']))
 
-        # Insert test patients
-        patients = os.getenv("PATIENTS")
-        csv_reader = csv.DictReader(StringIO(patients))
-        for row in csv_reader:
-            cursor.execute('''
-                INSERT INTO patients (name, age, gender, ethnicity)
-                VALUES (?, ?, ?, ?)
-            ''', (row['name'], int(row['age']), row['gender'], row['ethnicity']))
-
         # Insert test users
         users = os.getenv("USERS")
         csv_reader = csv.DictReader(StringIO(users))
