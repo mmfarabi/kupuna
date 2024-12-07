@@ -104,16 +104,16 @@ def get_all_exercises():
     # Return the exercises dictionary
     return exercise_data
 
-def insert_routine(routine_name, music, exercise_ids):
+def insert_routine(routine_name, description=None, music, exercise_ids):
     # Connect to SQLite database
     conn = get_connection()
     cursor = conn.cursor()
 
     # Insert routine into the 'routines' table
     cursor.execute('''
-    INSERT INTO routines (name, music)
-    VALUES (?, ?)
-    ''', (routine_name, music))
+    INSERT INTO routines (name, description, music)
+    VALUES (?, ?, ?)
+    ''', (routine_name, description, music))
 
     # Get the ID of the newly inserted routine
     routine_id = cursor.lastrowid
