@@ -208,8 +208,8 @@ def main():
             # Description field (optional)
             routine_description = st.text_area("Routine Description (Optional)", "")
 
+            music_titles = ["a", "b", "c"]
             recommended_music = ", ".join(music_titles)
-            recommended_music = str(music_titles)
             
             # Optional music field (optional)
             music_field = st.text_input("Recommended Music", recommended_music)
