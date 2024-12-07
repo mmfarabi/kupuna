@@ -209,6 +209,7 @@ def main():
             routine_description = st.text_area("Routine Description (Optional)", "")
 
             recommended_music = ", ".join(music_titles)
+            recommended_music = "life of pi"
             
             # Optional music field (optional)
             music_field = st.text_input("Recommended Music", recommended_music)
