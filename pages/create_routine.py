@@ -208,7 +208,10 @@ def main():
             routine_description = st.text_area("Routine Description (Optional)", "")
             
             # Optional music field (optional)
-            music_field = st.text_input("Recommended Music", value=", ".join(music_titles))
+            # music_field = st.text_input("Recommended Music", value=", ".join(music_titles))
+
+            music_field = st.text_input("Recommended Music", "Life of Brian")
+
         
             # Read-only field for selected exercise IDs
             exercise_ids_string = ", ".join([str(exercise["id"]) for exercise in selected_exercises.values()])
