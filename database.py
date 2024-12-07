@@ -233,3 +233,22 @@ def get_user(username):
     user = df.iloc[0] if not df.empty else None
     conn.close()
     return user
+
+def bulk_insert_patient(df):
+    conn = get_connection()
+    
+    # Map the columns from the CSV to match the database schema
+    mapped_df = df[["NAME", "MEM_AGE", "MEM_GENDER", "MEM_RACE"]].rename(
+        columns={
+            "NAME": "name",
+            "MEM_AGE": "age",
+            "MEM_GENDER": "gender",
+            "MEM_RACE": "ethnicity"
+        }
+    )
+
+    # Insert DataFrame into the SQLite table
+    mapped_df.to_sql("patients", conn, if_exists="append", index=False)
+
+    conn.commit()
+    conn.close()
