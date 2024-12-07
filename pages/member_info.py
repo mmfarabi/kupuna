@@ -179,6 +179,7 @@ def main():
     
         bulk_insert_patient(final_data)
         st.rerun()
+        st.success("New members successfully added.")
 
 if __name__ == "__main__":
     main()
