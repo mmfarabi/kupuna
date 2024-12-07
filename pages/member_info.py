@@ -96,7 +96,7 @@ def main():
     # Add instructions in the sidebar
     st.sidebar.title("Instructions")
     
-    st.sidebar.markdown("### 1. Look for members with cognitive issues like dementia from Claims Enrollment")
+    st.sidebar.markdown("### 1. Find members with cognitive issues like dementia from Claims Enrollment.")
     st.sidebar.code('''fgrep DEMENTIA Claims_Enrollment_truncated.csv''', language='text')
     st.sidebar.code('''
     7A406DA9B06D5E514D328418F,7A406DA9B06D5E514D328418F,2023-07-01,202307,76,SUBSCRIBER,"WARREN-TROY-FARMINGTON HILLS, MI",MEDICARE,MP,DENTAL,0.0,0.0,1.0,0.0,,102.0,102 - SEVERE DEMENTIA
@@ -106,14 +106,20 @@ def main():
     F760929731123ECC986CE311B,F760929731123ECC986CE311B,2022-10-01,202210,85,SUBSCRIBER,"NON-MSA AREA, MI",MEDICARE SUPPLEMENT,MS,MEDICAL,1.0,0.0,0.0,0.0,,102.0,102 - SEVERE DEMENTIA
     ''', language='text')
     
-    st.sidebar.markdown("### 2. Create a Routine")
-    st.sidebar.code('''Navigate to "Create Routine" to define a new exercise routine.''', language='text')
+    st.sidebar.markdown("### 2. Find members by PRIMARY_KEY_NUMBER in combined Claims Member dataset.")
+    st.sidebar.code('''grep -E "7A406DA9B06D5E514D328418F|111C5B708D4F5DA70CAC42607|222C720211EE79B712933E434" combined_data_member.csv''', language='text')
+    st.sidebar.code('''
+    7A406DA9B06D5E514D328418F,7A406DA9B06D5E514D328418F,F,,,968,"URBAN HONOLULU, HI",HI
+    222C720211EE79B712933E434,222C720211EE79B712933E434,M,,,968,"URBAN HONOLULU, HI",HI
+    111C5B708D4F5DA70CAC42607,111C5B708D4F5DA70CAC42607,F,,,968,"URBAN HONOLULU, HI",HI
+    7A406DA9B06D5E514D328418F,7A406DA9B06D5E514D328418F,F,,,480,"WARREN-TROY-FARMINGTON HILLS, MI",MI
+    222C720211EE79B712933E434,222C720211EE79B712933E434,M,,,484,"FLINT, MI",MI
+    111C5B708D4F5DA70CAC42607,111C5B708D4F5DA70CAC42607,F,,,485,"FLINT, MI",MI
+    ''', language='text')
     
-    st.sidebar.markdown("### 3. Assign a Routine")
-    st.sidebar.code('''Go to "Assign Routine" to allocate a routine to a patient.''', language='text')
+    st.sidebar.markdown("### 3. Copy the output of #1 in Enrollment text box below the headers. Make sure not to overwrite the headers.")
 
-    st.sidebar.markdown("### 4. Review Progress")
-    st.sidebar.code('''Check patient progress in the "Member Info" section.''', language='text')
+    st.sidebar.markdown("### 4. Copy the output of #2 in Members text box below the headers. Make sure not to overwrite the headers.")
 
     st.header('Kūpunas')
     patients_df = fetch_patients()
