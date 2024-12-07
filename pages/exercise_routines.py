@@ -44,6 +44,10 @@ def main():
         if routine_id:
             routine_details = routines.loc[routines["id"] == routine_id].iloc[0]
             st.subheader(f"Routine: {routine_details['name']}")
+
+            # Display routine description if available
+            if routine_details["description"]:
+                st.markdown(f"**Description:** {routine_details['description']}")
             
             # Display routine music if available
             if routine_details["music"]:
