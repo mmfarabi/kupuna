@@ -211,7 +211,9 @@ def main():
             st.write(", ".join(music_titles))
             
             # Optional music field (optional)
-            music_field = st.text_input("Recommended Music", ", ".join(music_titles))
+            # music_field = st.text_input("Recommended Music", ", ".join(music_titles))
+
+            music_field = st.text_input("Recommended Music", " Life of Pi ")
 
             st.write(music_field)
         
@@ -226,9 +228,6 @@ def main():
             if routine_name == "":
                 st.error("Routine name is required!")
             else:
-
-                st.write(music_field)
-                
                 exercise_ids = [int(exercise["id"]) for exercise in selected_exercises.values()]
                 insert_routine(routine_name, routine_description, music_field, exercise_ids)
                 ui.alert_dialog(show=True, 
