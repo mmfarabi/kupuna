@@ -221,18 +221,18 @@ def main():
             # Submit button for the form
             submit_button = st.form_submit_button(label="Save Routine")
             
-        if submit_button:
-            if routine_name == "":
-                st.error("Routine name is required!")
-            else:
-                exercise_ids = [int(exercise["id"]) for exercise in selected_exercises.values()]
-                insert_routine(routine_name, routine_description, music_field, exercise_ids)
-                ui.alert_dialog(show=True, 
-                                title="Routine Created", 
-                                description=f'Routine {routine_name} with music {music_field} has been created. Please click "Assign Routine" button to assign routine to a kūpuna.', 
-                                confirm_label="OK", 
-                                cancel_label="Cancel",
-                                key="routine_created_dialog")
+            if submit_button:
+                if routine_name == "":
+                    st.error("Routine name is required!")
+                else:
+                    exercise_ids = [int(exercise["id"]) for exercise in selected_exercises.values()]
+                    insert_routine(routine_name, routine_description, music_field, exercise_ids)
+                    ui.alert_dialog(show=True, 
+                                    title="Routine Created", 
+                                    description=f'Routine {routine_name} with music {music_field} has been created. Please click "Assign Routine" button to assign routine to a kūpuna.', 
+                                    confirm_label="OK", 
+                                    cancel_label="Cancel",
+                                    key="routine_created_dialog")
 
 
 if __name__ == "__main__":
