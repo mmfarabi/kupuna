@@ -3,6 +3,7 @@ import sqlite3
 import bcrypt
 import pandas as pd
 import random
+import io
 
 from style_helper import apply_header
 from database import initialize_database, get_user, add_user
