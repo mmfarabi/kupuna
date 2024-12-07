@@ -211,7 +211,7 @@ def main():
             routine_description = st.text_area("Routine Description (Optional)", "")
             
             # Optional music field (optional)
-            music_titles = "test"
+            music_titles = music_titles
             st.write(music_titles)
             music_field = st.text_input("Recommended Music", music_titles)
         
