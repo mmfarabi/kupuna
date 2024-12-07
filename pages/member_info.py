@@ -139,8 +139,10 @@ def main():
         # Select only the required columns
         final_data = merged_data[["PRIMARY_PERSON_KEY", "NAME", "MEM_AGE", "MEM_GENDER", "MEM_RACE", "MEM_ETHNICITY"]]
     
-        patient_df = bulk_insert_patient(final_data)
-        st.dataframe(patient_df)
+        bulk_insert_patient(final_data)
+
+        patients_df = fetch_patients()
+        st.dataframe(patients_df)
 
 if __name__ == "__main__":
     main()
