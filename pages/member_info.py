@@ -187,14 +187,13 @@ def main():
         elif "MEM_AGE_y" in merged_data.columns:
             merged_data.rename(columns={"MEM_AGE_y": "MEM_AGE"}, inplace=True)
 
-        st.dataframe(merged_data)
-
         # Select only the required columns
-        # final_data = merged_data[["PRIMARY_PERSON_KEY", "NAME", "MEM_AGE", "MEM_GENDER", "MEM_RACE", "MEM_ETHNICITY"]]
+        final_data = merged_data[["PRIMARY_PERSON_KEY", "NAME", "MEM_AGE", "MEM_GENDER", "MEM_RACE", "MEM_ETHNICITY"]]
+
+        st.dataframe(final_data)
 
         # bulk_insert_patient(final_data)
         # st.rerun()
-        # st.success("New members successfully added.")
 
 if __name__ == "__main__":
     main()
