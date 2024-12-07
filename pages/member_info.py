@@ -182,6 +182,11 @@ def main():
     
         merged_data["NAME"] = merged_data.apply(assign_name, axis=1)
 
+        if "MEM_AGE_x" in merged_data.columns:
+            merged_data.rename(columns={"MEM_AGE_x": "MEM_AGE"}, inplace=True)
+        elif "MEM_AGE_y" in merged_data.columns:
+            merged_data.rename(columns={"MEM_AGE_y": "MEM_AGE"}, inplace=True)
+
         st.dataframe(merged_data)
 
         # Select only the required columns
