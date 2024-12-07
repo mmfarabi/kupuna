@@ -181,11 +181,11 @@ def main():
         merged_data[["MEM_RACE", "MEM_ETHNICITY"]] = merged_data.apply(assign_race_ethnicity, axis=1)
     
         merged_data["NAME"] = merged_data.apply(assign_name, axis=1)
-    
-        # Select only the required columns
-        final_data = merged_data[["PRIMARY_PERSON_KEY", "NAME", "MEM_AGE", "MEM_GENDER", "MEM_RACE", "MEM_ETHNICITY"]]
 
-        st.dataframe(final_data)
+        st.dataframe(merged_data)
+
+        # Select only the required columns
+        # final_data = merged_data[["PRIMARY_PERSON_KEY", "NAME", "MEM_AGE", "MEM_GENDER", "MEM_RACE", "MEM_ETHNICITY"]]
 
         # bulk_insert_patient(final_data)
         # st.rerun()
