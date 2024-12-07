@@ -55,10 +55,11 @@ def main():
             
             # Fetch and display exercises for the selected routine
             exercises = get_exercises_for_routine(routine_id)
-            ui.table(data=exercises)
             
             st.subheader("Exercises")
             if not exercises.empty:
+                ui.table(data=exercises)
+                
                 for _, exercise in exercises.iterrows():
                     st.markdown(f"### {exercise['name']} ({exercise['phase']})")
                     st.write(exercise["description"])
