@@ -41,8 +41,8 @@ def assign_name(row):
             "F": ["Emily Cooke", "Olivia Brown", "Sophia Harris"] if row["MEM_ETHNICITY"] == 2 else ["Maria Gonzalez", "Isabella Martinez", "Ana Lopez"]
         },
         "Native Hawaiian or Pacific Islander": {
-            "M": ["Kai Malu", "Noa Kaipo", "Lani Kealoha"],
-            "F": ["Leilani Aloha", "Moana Kea", "Halia Lani"]
+            "M": ["Mike Malu", "Noah Kaipo", "Lani Kealoha"],
+            "F": ["Leilani Aloha", "Moana Kea", "Jennifer Lani"]
         },
         "Portuguese": {
             "M": ["Antonio Silva", "Manuel Sousa", "Joao Mendes"],
@@ -122,7 +122,7 @@ def main():
     """
     enrollment_csv = st.text_area("Enrollment", value=enrollment.strip(), height=300)
 
-    if st.button("Insert Data"):
+    if st.button("Insert Members"):
         members_df = pd.read_csv(io.StringIO(members_csv))
         enrollment_df = pd.read_csv(io.StringIO(enrollment_csv))
     
