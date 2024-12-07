@@ -206,11 +206,9 @@ def main():
 
             # Description field (optional)
             routine_description = st.text_area("Routine Description (Optional)", "")
-
-            default_music = ", ".join(music_titles) if music_titles else ""
             
             # Optional music field (optional)
-            music_field = st.text_input("Recommended Music", value=st.session_state.get("music_field", default_music))
+            music_field = st.text_input("Recommended Music", value=st.session_state.get("music_field", music_titles))
 
             st.write(music_field)
         
