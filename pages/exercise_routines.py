@@ -59,7 +59,7 @@ def main():
                     st.markdown(f"### {exercise['name']} ({exercise['phase']})")
                     st.write(exercise["description"])
                     if exercise["video"]:
-                        st.video(f"https://www.youtube.com/watch?v={exercise['video']}")
+                        st.video(exercise["video"])
             else:
                 st.write("No exercises found for this routine.")
     else:
