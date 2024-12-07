@@ -50,6 +50,9 @@ def main():
             
             # Fetch and display exercises for the selected routine
             exercises = get_exercises_for_routine(routine_id)
+
+            st.dataframe(exercises)
+            
             st.subheader("Exercises")
             if not exercises.empty:
                 for _, exercise in exercises.iterrows():
