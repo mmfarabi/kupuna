@@ -211,9 +211,8 @@ def main():
             routine_description = st.text_area("Routine Description (Optional)", "")
             
             # Optional music field (optional)
-            music_field = st.text_input("Recommended Music", value=st.session_state.get("music_field", music_titles))
-
-            st.write(music_field)
+            st.write(music_titles)
+            music_field = st.text_input("Recommended Music", music_titles)
         
             # Read-only field for selected exercise IDs
             exercise_ids_string = ", ".join([str(exercise["id"]) for exercise in selected_exercises.values()])
@@ -225,13 +224,9 @@ def main():
             if submit_button:
                 if routine_name == "":
                     st.error("Routine name is required!")
-                else:
-
-                    st.session_state["music_field"] = music_field
-                    
-                    
+                else:                    
                     exercise_ids = [int(exercise["id"]) for exercise in selected_exercises.values()]
-                    insert_routine(routine_name, routine_description, music_field, exercise_ids)
+                    # insert_routine(routine_name, routine_description, music_field, exercise_ids)
                     ui.alert_dialog(show=True, 
                                     title="Routine Created", 
                                     description=f'Routine {routine_name} with music {music_field} has been created. Please click "Assign Routine" button to assign routine to a kūpuna.', 
