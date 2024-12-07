@@ -195,7 +195,9 @@ def main():
 
                     st.markdown("#### 📺 YouTube Videos")
                     music_titles = find_music_links(playlist)
-    
+        else:
+            music_titles = []
+        
         # Form below the routine generation button
         with st.form(key="routine_form"):
             st.subheader("Routine Details")
