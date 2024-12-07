@@ -184,10 +184,12 @@ def main():
     
         # Select only the required columns
         final_data = merged_data[["PRIMARY_PERSON_KEY", "NAME", "MEM_AGE", "MEM_GENDER", "MEM_RACE", "MEM_ETHNICITY"]]
-    
-        bulk_insert_patient(final_data)
-        st.rerun()
-        st.success("New members successfully added.")
+
+        st.dataframe(final_data)
+
+        # bulk_insert_patient(final_data)
+        # st.rerun()
+        # st.success("New members successfully added.")
 
 if __name__ == "__main__":
     main()
