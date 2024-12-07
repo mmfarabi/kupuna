@@ -93,6 +93,21 @@ def main():
 
     st.sidebar.image("https://raw.githubusercontent.com/datjandra/kupuna/refs/heads/main/images/logo.png")
 
+    # Add instructions in the sidebar
+    st.sidebar.title("Instructions")
+    
+    st.sidebar.markdown("### 1. Select a Patient")
+    st.sidebar.code('''Click on the "Kūpunas" header to view the list of patients.''', language='text')
+    
+    st.sidebar.markdown("### 2. Create a Routine")
+    st.sidebar.code('''Navigate to "Create Routine" to define a new exercise routine.''', language='text')
+    
+    st.sidebar.markdown("### 3. Assign a Routine")
+    st.sidebar.code('''Go to "Assign Routine" to allocate a routine to a patient.''', language='text')
+
+    st.sidebar.markdown("### 4. Review Progress")
+    st.sidebar.code('''Check patient progress in the "Member Info" section.''', language='text')
+
     st.header('Kūpunas')
     patients_df = fetch_patients()
     ui.table(data=patients_df)
