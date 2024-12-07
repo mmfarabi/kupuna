@@ -51,8 +51,7 @@ def find_music_links(markdown_text):
             st.write(title)
             st_player(f'https://www.youtube.com/watch?v={video_id}')
             music_titles.append(title)
-
-    return music_titles
+    return ", ".join(music_titles)
 
 def routine_select(exercise_data):
     left, right = st.columns(2)
@@ -196,7 +195,7 @@ def main():
                     st.markdown("#### 📺 YouTube Videos")
                     music_titles = find_music_links(playlist)
         else:
-            music_titles = []
+            music_titles = None
         
         # Form below the routine generation button
         with st.form(key="routine_form"):
@@ -208,11 +207,10 @@ def main():
             # Description field (optional)
             routine_description = st.text_area("Routine Description (Optional)", "")
 
-            music_titles = ["a", "b", "c"]
-            recommended_music = ", ".join(music_titles)
+            st.write(music_titles)
             
             # Optional music field (optional)
-            music_field = st.text_input("Recommended Music", recommended_music)
+            music_field = st.text_input("Recommended Music", music_titles)
 
             st.write(music_field)
         
