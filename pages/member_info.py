@@ -20,5 +20,8 @@ def main():
       </div>
       """, unsafe_allow_html=True)
 
+    st.sidebar.image("https://raw.githubusercontent.com/datjandra/kupuna/refs/heads/main/images/logo.png")
+    
+
 if __name__ == "__main__":
     main()
