@@ -207,10 +207,10 @@ def main():
             # Description field (optional)
             routine_description = st.text_area("Routine Description (Optional)", "")
 
-            st.write(music_titles)
+            default_music = ", ".join(music_titles) if music_titles else ""
             
             # Optional music field (optional)
-            music_field = st.text_input("Recommended Music", music_titles)
+            music_field = st.text_input("Recommended Music", value=st.session_state.get("music_field", default_music))
 
             st.write(music_field)
         
@@ -226,6 +226,8 @@ def main():
                     st.error("Routine name is required!")
                 else:
 
+                    st.session_state["music_field"] = music_field
+                    
                     st.write(music_field)
                     
                     exercise_ids = [int(exercise["id"]) for exercise in selected_exercises.values()]
