@@ -212,6 +212,8 @@ def main():
             
             # Optional music field (optional)
             music_field = st.text_input("Recommended Music", ", ".join(music_titles))
+
+            st.write(music_field)
         
             # Read-only field for selected exercise IDs
             exercise_ids_string = ", ".join([str(exercise["id"]) for exercise in selected_exercises.values()])
@@ -224,6 +226,9 @@ def main():
             if routine_name == "":
                 st.error("Routine name is required!")
             else:
+
+                st.write(music_field)
+                
                 exercise_ids = [int(exercise["id"]) for exercise in selected_exercises.values()]
                 insert_routine(routine_name, routine_description, music_field, exercise_ids)
                 ui.alert_dialog(show=True, 
