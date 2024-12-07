@@ -196,7 +196,8 @@ def main():
                     st.divider()
 
                     st.markdown("#### 📺 YouTube Videos")
-                    music_titles = find_music_links(playlist)
+                    # music_titles = find_music_links(playlist)
+                    music_titles = "test"
         else:
             music_titles = None
         
@@ -211,7 +212,6 @@ def main():
             routine_description = st.text_area("Routine Description (Optional)", "")
             
             # Optional music field (optional)
-            music_titles = music_titles
             st.write(music_titles)
             music_field = st.text_input("Recommended Music", music_titles)
         
