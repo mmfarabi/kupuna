@@ -167,12 +167,16 @@ def main():
     if st.button("Insert Members"):
         members_df = pd.read_csv(io.StringIO(members_csv))
         enrollment_df = pd.read_csv(io.StringIO(enrollment_csv))
-    
-        # Remove duplicates from data2 based on PRIMARY_PERSON_KEY and MEM_MSA_NAME
-        members_df = members_df.drop_duplicates(subset=["PRIMARY_PERSON_KEY", "MEM_MSA_NAME"])
+
+        # Perform the filtering
+        filtered_members_df = members_df.merge(
+            enrollment_df,
+            on=["PRIMARY_PERSON_KEY", "MEM_MSA_NAME"],
+            how="inner"
+        )
     
         # Merge datasets on PRIMARY_PERSON_KEY
-        merged_data = pd.merge(members_df, enrollment_df, on="PRIMARY_PERSON_KEY", how="inner")
+        merged_data = pd.merge(filtered_members_df, enrollment_df, on="PRIMARY_PERSON_KEY", how="inner")
     
         merged_data[["MEM_RACE", "MEM_ETHNICITY"]] = merged_data.apply(assign_race_ethnicity, axis=1)
     
