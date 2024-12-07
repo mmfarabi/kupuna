@@ -30,33 +30,35 @@ def assign_race_ethnicity(row):
         return pd.Series([race, ethnicity])
     return pd.Series([row["MEM_RACE"], row["MEM_ETHNICITY"]])
 
+import random
+
 # Set NAME based on MEM_GENDER, MEM_RACE, MEM_ETHNICITY
 def assign_name(row):
     # Gender-specific names for each race and ethnicity
     race_to_name = {
         "Caucasian": {
-            "M": "Alexander Baldwin" if row["MEM_ETHNICITY"] == 2 else "Juan Garcia",
-            "F": "Emily Cooke" if row["MEM_ETHNICITY"] == 2 else "Maria Gonzalez"
+            "M": ["Alexander Baldwin", "Henry Perrine", "Ethan Taylor"] if row["MEM_ETHNICITY"] == 2 else ["Juan Garcia", "Carlos Diaz", "Miguel Torres"],
+            "F": ["Emily Cooke", "Olivia Brown", "Sophia Harris"] if row["MEM_ETHNICITY"] == 2 else ["Maria Gonzalez", "Isabella Martinez", "Ana Lopez"]
         },
         "Native Hawaiian or Pacific Islander": {
-            "M": "Kai Malu",
-            "F": "Leilani Aloha"
+            "M": ["Kai Malu", "Noa Kaipo", "Lani Kealoha"],
+            "F": ["Leilani Aloha", "Moana Kea", "Halia Lani"]
         },
         "Portuguese": {
-            "M": "Antonio Silva",
-            "F": "Sofia Costa"
+            "M": ["Antonio Silva", "Manuel Sousa", "Joao Mendes"],
+            "F": ["Sofia Costa", "Isabel Ferreira", "Ana Oliveira"]
         },
         "Filipino": {
-            "M": "Jose Rizal",
-            "F": "Maria Clara"
+            "M": ["Jose Rizal", "Andres Bonifacio", "Manuel Quezon"],
+            "F": ["Maria Clara", "Gabriela Silang", "Corazon Aquino"]
         },
         "Japanese": {
-            "M": "Kenji Tanaka",
-            "F": "Yuki Sato"
+            "M": ["Greg Tanaka", "Hiroshi Yamamoto", "Steve Suzuki"],
+            "F": ["Mary Sato", "Akiko Nakamura", "Eunice Takahashi"]
         },
         "Chinese": {
-            "M": "Wei Zhang",
-            "F": "Li Mei"
+            "M": ["David Zhang", "Li Wei", "John Wang"],
+            "F": ["Bill Mei", "Xiao Hong", "Joseph Yi"]
         }
     }
 
@@ -65,8 +67,11 @@ def assign_name(row):
 
     # Get race-based names
     race_names = race_to_name.get(row["MEM_RACE"], {})
-    # Return gender-specific name, or default if not available
-    return race_names.get(row["MEM_GENDER"], default_name)
+    # Get gender-specific names, or use default if not available
+    gender_names = race_names.get(row["MEM_GENDER"], [default_name])
+    
+    # Randomly pick a name from the list
+    return random.choice(gender_names)
 
 def main():    
     apply_header()
