@@ -11,6 +11,10 @@ def main():
     st.markdown(
       """
       <div class="button-grid">
+          <a href="member_info" target="_self" class="button-card">
+            <p>Member Info</p>
+            <div class="icon">&#128117;</div>
+          </a>
           <a href="create_routine" target="_self" class="button-card">
             <p>Create Routine</p>
             <div class="icon">&#x1F57A;</div>
