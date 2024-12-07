@@ -6,7 +6,7 @@ import random
 import io
 
 from style_helper import apply_header
-from database import initialize_database, get_user, add_user
+from database import initialize_database, get_user, add_user, bulk_insert_patient
 
 def login_page(col):
     with col:
@@ -168,6 +168,7 @@ def main():
             final_data = merged_data[["PRIMARY_PERSON_KEY", "NAME", "MEM_AGE", "MEM_GENDER", "MEM_RACE", "MEM_ETHNICITY"]]
 
             st.dataframe(final_data)
+            bulk_insert_patient(final_data)
 
 if __name__ == "__main__":
     main()
