@@ -141,6 +141,7 @@ def main():
     
         st.dataframe(final_data)
         bulk_insert_patient(final_data)
+        st.rerun()
 
 if __name__ == "__main__":
     main()
