@@ -240,10 +240,6 @@ def bulk_insert_patient(df):
 
     # Insert DataFrame into the SQLite table
     mapped_df.to_sql("patients", conn, if_exists="append", index=False)
-
-    patient_df = pd.read_sql('SELECT * FROM patients', conn)
     
     conn.commit()
     conn.close()
-
-    return patient_df
