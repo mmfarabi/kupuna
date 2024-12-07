@@ -97,7 +97,9 @@ def main():
     st.sidebar.title("Adding Members")
     
     st.sidebar.markdown("### 1. Find members with cognitive issues like dementia from Claims Enrollment dataset.")
+    st.sidebar.write("Command:")
     st.sidebar.code('''fgrep DEMENTIA Claims_Enrollment_truncated.csv''', language='text')
+    st.sidebar.write("Output:")
     st.sidebar.code('''
     7A406DA9B06D5E514D328418F,7A406DA9B06D5E514D328418F,2023-07-01,202307,76,SUBSCRIBER,"WARREN-TROY-FARMINGTON HILLS, MI",MEDICARE,MP,DENTAL,0.0,0.0,1.0,0.0,,102.0,102 - SEVERE DEMENTIA
     111C5B708D4F5DA70CAC42607,111C5B708D4F5DA70CAC42607,2023-05-01,202305,75,SUBSCRIBER,"FLINT, MI",MEDICARE SUPPLEMENT,MS,VISION,0.0,0.0,0.0,1.0,,102.0,102 - SEVERE DEMENTIA
