@@ -140,9 +140,7 @@ def main():
         final_data = merged_data[["PRIMARY_PERSON_KEY", "NAME", "MEM_AGE", "MEM_GENDER", "MEM_RACE", "MEM_ETHNICITY"]]
     
         bulk_insert_patient(final_data)
-
-        patients_df = fetch_patients()
-        st.dataframe(patients_df)
+        st.rerun()
 
 if __name__ == "__main__":
     main()
