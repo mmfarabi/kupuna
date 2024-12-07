@@ -227,13 +227,7 @@ def main():
                 else:                    
                     exercise_ids = [int(exercise["id"]) for exercise in selected_exercises.values()]
                     # insert_routine(routine_name, routine_description, music_field, exercise_ids)
-                    ui.alert_dialog(show=True, 
-                                    title="Routine Created", 
-                                    description=f'Routine {routine_name} with music {music_field} has been created. Please click "Assign Routine" button to assign routine to a kūpuna.', 
-                                    confirm_label="OK", 
-                                    cancel_label="Cancel",
-                                    key="routine_created_dialog")
-
+                    st.success(f'Routine {routine_name} with music {music_field} has been created. Please click "Assign Routine" button to assign routine to a kūpuna.')
 
 if __name__ == "__main__":
     main()
