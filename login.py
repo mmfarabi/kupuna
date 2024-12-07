@@ -38,7 +38,68 @@ def register_page(col):
       if st.button("Register"):
         add_user(username, password, role)
         st.success("User registered successfully!")
-      
+
+# Define race categories and ethnicity mapping
+race_categories = [
+    "Caucasian", "Native Hawaiian or Pacific Islander", "Portuguese",
+    "Filipino", "Japanese", "Chinese"
+]
+
+ethnicity_mapping = {
+    "Caucasian": 2,  # Not Hispanic
+    "Native Hawaiian or Pacific Islander": 3,  # Unknown
+    "Portuguese": 2,  # Not Hispanic
+    "Filipino": 1,  # Hispanic
+    "Japanese": 3,  # Unknown
+    "Chinese": 3    # Unknown
+}
+
+# Fill missing MEM_RACE and set MEM_ETHNICITY
+def assign_race_ethnicity(row):
+    if pd.isna(row["MEM_RACE"]):
+        race = random.choice(race_categories)
+        ethnicity = ethnicity_mapping[race]
+        return pd.Series([race, ethnicity])
+    return pd.Series([row["MEM_RACE"], row["MEM_ETHNICITY"]])
+
+# Set NAME based on MEM_GENDER, MEM_RACE, MEM_ETHNICITY
+def assign_name(row):
+    # Gender-specific names for each race and ethnicity
+    race_to_name = {
+        "Caucasian": {
+            "M": "Alexander Baldwin" if row["MEM_ETHNICITY"] == 2 else "Juan Garcia",
+            "F": "Emily Cooke" if row["MEM_ETHNICITY"] == 2 else "Maria Gonzalez"
+        },
+        "Native Hawaiian or Pacific Islander": {
+            "M": "Kai Malu",
+            "F": "Leilani Aloha"
+        },
+        "Portuguese": {
+            "M": "Antonio Silva",
+            "F": "Sofia Costa"
+        },
+        "Filipino": {
+            "M": "Jose Rizal",
+            "F": "Maria Clara"
+        },
+        "Japanese": {
+            "M": "Kenji Tanaka",
+            "F": "Yuki Sato"
+        },
+        "Chinese": {
+            "M": "Wei Zhang",
+            "F": "Li Mei"
+        }
+    }
+
+    # Default name if gender or race is unknown
+    default_name = "Taylor Morgan"
+
+    # Get race-based names
+    race_names = race_to_name.get(row["MEM_RACE"], {})
+    # Return gender-specific name, or default if not available
+    return race_names.get(row["MEM_GENDER"], default_name)
+
 def main():
     apply_header()
 
@@ -99,8 +160,14 @@ def main():
             # Merge datasets on PRIMARY_PERSON_KEY
             merged_data = pd.merge(members_df, enrollment_df, on="PRIMARY_PERSON_KEY", how="inner")
 
-            st.dataframe(merged_data)
+            merged_data[["MEM_RACE", "MEM_ETHNICITY"]] = merged_data.apply(assign_race_ethnicity, axis=1)
 
+            merged_data["NAME"] = merged_data.apply(assign_name, axis=1)
+
+            # Select only the required columns
+            final_data = merged_data[["PRIMARY_PERSON_KEY", "NAME", "MEM_AGE", "MEM_GENDER", "MEM_RACE", "MEM_ETHNICITY"]]
+
+            st.dataframe(merged_data)
 
 if __name__ == "__main__":
     main()
