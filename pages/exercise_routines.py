@@ -29,8 +29,6 @@ def main():
     # Fetch all routines
     routines = fetch_routines()
 
-    st.dataframe(routines)
-
     st.sidebar.image("https://raw.githubusercontent.com/datjandra/kupuna/refs/heads/main/images/logo.png")
     
     # Display routine selection
@@ -52,7 +50,6 @@ def main():
             
             # Fetch and display exercises for the selected routine
             exercises = get_exercises_for_routine(routine_id)
-
             st.dataframe(exercises)
             
             st.subheader("Exercises")
