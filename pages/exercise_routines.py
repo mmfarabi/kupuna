@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit_shadcn_ui as ui
 
 from database import fetch_routines, get_exercises_for_routine
 from style_helper import apply_header
@@ -50,7 +51,7 @@ def main():
             
             # Fetch and display exercises for the selected routine
             exercises = get_exercises_for_routine(routine_id)
-            st.dataframe(exercises)
+            ui.table(data=exercises)
             
             st.subheader("Exercises")
             if not exercises.empty:
