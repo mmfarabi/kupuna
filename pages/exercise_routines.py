@@ -8,24 +8,60 @@ def main():
     apply_header()
 
     st.title("Exercise Routines")
-    
-    st.markdown(
-      """
-      <div class="button-grid">
-          <a href="create_routine" target="_self" class="button-card">
-            <p>Create Routine</p>
-            <div class="icon">&#x1F57A;</div>
-          </a>
-          <a href="assign_routine" target="_self" class="button-card">
-            <p>Assign Routine</p>
-            <div class="icon">&#128116;</div>
-          </a>
-          <a href="exercise_log" target="_self" class="button-card">
-            <p>Exercise Log</p>
-            <div class="icon">&#128200;</div>
-          </a>
-      </div>
-      """, unsafe_allow_html=True)
+
+    role = st.session_state.get("role", None)
+
+    # Conditional display of buttons based on role
+    if role == "coach":
+        st.markdown(
+            """
+            <div class="button-grid">
+                <a href="create_routine" target="_self" class="button-card">
+                    <p>Create Routine</p>
+                    <div class="icon">&#x1F57A;</div>
+                </a>
+                <a href="assign_routine" target="_self" class="button-card">
+                    <p>Assign Routine</p>
+                    <div class="icon">&#128116;</div>
+                </a>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+    elif role == "caregiver":
+        st.markdown(
+            """
+            <div class="button-grid">
+                <a href="exercise_log" target="_self" class="button-card">
+                    <p>Exercise Log</p>
+                    <div class="icon">&#128200;</div>
+                </a>
+                <a href="dementia_info" target="_self" class="button-card">
+                    <p>Dementia Info</p>
+                    <div class="icon">&#128106;</div>
+                </a>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+    else:
+        st.markdown(
+          """
+          <div class="button-grid">
+              <a href="create_routine" target="_self" class="button-card">
+                <p>Create Routine</p>
+                <div class="icon">&#x1F57A;</div>
+              </a>
+              <a href="assign_routine" target="_self" class="button-card">
+                <p>Assign Routine</p>
+                <div class="icon">&#128116;</div>
+              </a>
+              <a href="exercise_log" target="_self" class="button-card">
+                <p>Exercise Log</p>
+                <div class="icon">&#128200;</div>
+              </a>
+          </div>
+          """, unsafe_allow_html=True)
 
     # Fetch all routines
     routines = fetch_routines()
