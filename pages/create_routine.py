@@ -188,7 +188,10 @@ def main():
                     st.divider()  # Adds a horizontal divider for better structure
 
                     st.markdown("#### 🎶 Music Titles")
-                    playlist = generate_playlist(age, gender, ethnicity)
+                    # playlist = generate_playlist(age, gender, ethnicity)
+                    playlist = """
+                    "What a Wonderful World" - Louis Armstrong: This song's simple, uplifting melody and positive lyrics are universally appealing and can stimulate positive emotions and reminiscence. Armstrong's warm vocals are soothing and familiar to many.
+                    """
                     st.markdown(playlist)
                     st.divider()
 
