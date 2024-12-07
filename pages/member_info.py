@@ -96,7 +96,7 @@ def main():
     # Add instructions in the sidebar
     st.sidebar.title("Adding Members")
     
-    st.sidebar.markdown("### 1. Find members with cognitive issues like dementia from Claims Enrollment dataset.")
+    st.sidebar.markdown("### 1. Find members with cognitive issues like dementia from Claims Enrollment CSV dataset.")
     st.sidebar.write("Command:")
     st.sidebar.code('''fgrep DEMENTIA Claims_Enrollment_truncated.csv''', language='text')
     st.sidebar.write("Output:")
@@ -108,7 +108,7 @@ def main():
     F760929731123ECC986CE311B,F760929731123ECC986CE311B,2022-10-01,202210,85,SUBSCRIBER,"NON-MSA AREA, MI",MEDICARE SUPPLEMENT,MS,MEDICAL,1.0,0.0,0.0,0.0,,102.0,102 - SEVERE DEMENTIA
     ''', language='text')
     
-    st.sidebar.markdown("### 2. Now find members by MEMBER_ID from combined Claims Member dataset.")
+    st.sidebar.markdown("### 2. Now find members by MEMBER_ID from combined Claims Member CSV dataset.")
     st.sidebar.write("Command:")
     st.sidebar.code('''grep -E "7A406DA9B06D5E514D328418F|111C5B708D4F5DA70CAC42607|222C720211EE79B712933E434" combined_data_member.csv''', language='text')
     st.sidebar.write("Output:")
