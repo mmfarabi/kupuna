@@ -1,6 +1,8 @@
 import streamlit as st
 import sqlite3
 import bcrypt
+import pandas as pd
+import random
 
 from style_helper import apply_header
 from database import initialize_database, get_user, add_user
@@ -74,7 +76,7 @@ def main():
         222C720211EE79B712933E434,222C720211EE79B712933E434,M,,,484,"FLINT, MI",MI
         111C5B708D4F5DA70CAC42607,111C5B708D4F5DA70CAC42607,F,,,485,"FLINT, MI",MI
         """
-        st.text_area("Members", value=members.strip(), height=300)
+        members_csv = st.text_area("Members", value=members.strip(), height=300)
 
         enrollment = """
         PRIMARY_PERSON_KEY,MEMBER_ID,MEMBER_MONTH_START_DATE,YEARMO,MEM_AGE,RELATION,MEM_MSA_NAME,PAYER_LOB,PAYER_TYPE,PROD_TYPE,QTY_MM_MD,QTY_MM_RX,QTY_MM_DN,QTY_MM_VS,MEM_STAT,PRIMARY_CHRONIC_CONDITION_ROLLUP_ID,PRIMARY_CHRONIC_CONDITION_ROLLUP_DESC
@@ -84,7 +86,20 @@ def main():
         B6D25593757653ED083F7E816,B6D25593757653ED083F7E816,2023-09-01,202309,80,SUBSCRIBER,"WARREN-TROY-FARMINGTON HILLS, MI",MEDICARE,MP,RX,0.0,1.0,0.0,0.0,,102.0,102 - SEVERE DEMENTIA
         F760929731123ECC986CE311B,F760929731123ECC986CE311B,2022-10-01,202210,85,SUBSCRIBER,"NON-MSA AREA, MI",MEDICARE SUPPLEMENT,MS,MEDICAL,1.0,0.0,0.0,0.0,,102.0,102 - SEVERE DEMENTIA
         """
-        st.text_area("Enrollment", value=enrollment.strip(), height=300)
+        enrollment_csv = st.text_area("Enrollment", value=enrollment.strip(), height=300)
+
+        if st.button("Insert Data"):
+            members_df = pd.read_csv(io.StringIO(members_csv))
+            enrollment_df = pd.read_csv(io.StringIO(enrollment_csv))
+
+            # Remove duplicates from data2 based on PRIMARY_PERSON_KEY and MEM_MSA_NAME
+            members_df = members_df.drop_duplicates(subset=["PRIMARY_PERSON_KEY", "MEM_MSA_NAME"])
+
+            # Merge datasets on PRIMARY_PERSON_KEY
+            merged_data = pd.merge(members_df, enrollment_df, on="PRIMARY_PERSON_KEY", how="inner")
+
+            st.dataframe(merged_data)
+
 
 if __name__ == "__main__":
     main()
