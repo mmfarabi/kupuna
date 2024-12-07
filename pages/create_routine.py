@@ -188,18 +188,13 @@ def main():
                     st.divider()  # Adds a horizontal divider for better structure
 
                     st.markdown("#### 🎶 Music Titles")
-                    # playlist = generate_playlist(age, gender, ethnicity)
-                    playlist = """
-                    "What a Wonderful World" - Louis Armstrong: This song's simple, uplifting melody and positive lyrics are universally appealing and can stimulate positive emotions and reminiscence. Armstrong's warm vocals are soothing and familiar to many.
-                    """
+                    playlist = generate_playlist(age, gender, ethnicity)
                     st.markdown(playlist)
                     st.divider()
 
                     st.markdown("#### 📺 YouTube Videos")
                     music_titles = find_music_links(playlist)
-                    st.session_state["music_field"] = music_titles
-        else:
-            music_titles = None
+                    st.session_state["music_titles"] = music_titles
         
         # Form below the routine generation button
         with st.form(key="routine_form"):
@@ -212,7 +207,7 @@ def main():
             routine_description = st.text_area("Routine Description (Optional)", "")
             
             # Optional music field (optional)
-            music_field = st.text_input("Recommended Music", st.session_state.get("music_field"))
+            music_field = st.text_input("Recommended Music", st.session_state.get("music_titles", ""))
         
             # Read-only field for selected exercise IDs
             exercise_ids_string = ", ".join([str(exercise["id"]) for exercise in selected_exercises.values()])
@@ -226,8 +221,8 @@ def main():
                     st.error("Routine name is required!")
                 else:                    
                     exercise_ids = [int(exercise["id"]) for exercise in selected_exercises.values()]
-                    # insert_routine(routine_name, routine_description, music_field, exercise_ids)
-                    st.success(f'Routine {routine_name} with music {music_field} has been created. Please click "Assign Routine" button to assign routine to a kūpuna.')
+                    insert_routine(routine_name, routine_description, music_field, exercise_ids)
+                    st.success(f'Routine {routine_name} has been created. Please click "Assign Routine" button to assign routine to a kūpuna.')
 
 if __name__ == "__main__":
     main()
