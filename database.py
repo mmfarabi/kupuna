@@ -170,7 +170,7 @@ def fetch_patients():
 def fetch_routines():
     conn = get_connection()
     query = """
-    SELECT id, name, music
+    SELECT id, name, description, music
     FROM routines
     """
     routines = pd.read_sql(query, conn)
