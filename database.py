@@ -104,7 +104,7 @@ def get_all_exercises():
     # Return the exercises dictionary
     return exercise_data
 
-def insert_routine(routine_name, description=None, music, exercise_ids):
+def insert_routine(routine_name, description, music, exercise_ids):
     # Connect to SQLite database
     conn = get_connection()
     cursor = conn.cursor()
