@@ -96,7 +96,7 @@ def main():
     # Add instructions in the sidebar
     st.sidebar.title("Adding Members")
     
-    st.sidebar.markdown("### 1. Find members with cognitive issues like dementia from Claims Enrollment.")
+    st.sidebar.markdown("### 1. Find members with cognitive issues like dementia from Claims Enrollment dataset.")
     st.sidebar.code('''fgrep DEMENTIA Claims_Enrollment_truncated.csv''', language='text')
     st.sidebar.code('''
     7A406DA9B06D5E514D328418F,7A406DA9B06D5E514D328418F,2023-07-01,202307,76,SUBSCRIBER,"WARREN-TROY-FARMINGTON HILLS, MI",MEDICARE,MP,DENTAL,0.0,0.0,1.0,0.0,,102.0,102 - SEVERE DEMENTIA
@@ -121,7 +121,7 @@ def main():
 
     st.sidebar.markdown("### 4. Copy the output of #2 in Members text box below the headers. Do not overwrite the headers. If headers are deleted then refresh the page and copy the data below the headers.")
 
-    st.sidebar.markdown("### 5. Click Insert Members button to insert the members. Race will be randomly assigned if not specified, and name will be randomly created from race.")
+    st.sidebar.markdown("### 5. Click \"Insert Members\" button to insert the members. Race will be randomly assigned if not specified, and name will be randomly created from race.")
 
     st.sidebar.markdown("### 6. To create a new exercise routine click the \"Create Routine\" button.")
 
