@@ -96,8 +96,15 @@ def main():
     # Add instructions in the sidebar
     st.sidebar.title("Instructions")
     
-    st.sidebar.markdown("### 1. Select a Patient")
-    st.sidebar.code('''Click on the "Kūpunas" header to view the list of patients.''', language='text')
+    st.sidebar.markdown("### 1. Look for members with cognitive issues like dementia from Claims Enrollment")
+    st.sidebar.code('''fgrep DEMENTIA Claims_Enrollment_truncated.csv''', language='text')
+    st.sidebar.code('''
+    7A406DA9B06D5E514D328418F,7A406DA9B06D5E514D328418F,2023-07-01,202307,76,SUBSCRIBER,"WARREN-TROY-FARMINGTON HILLS, MI",MEDICARE,MP,DENTAL,0.0,0.0,1.0,0.0,,102.0,102 - SEVERE DEMENTIA
+    111C5B708D4F5DA70CAC42607,111C5B708D4F5DA70CAC42607,2023-05-01,202305,75,SUBSCRIBER,"FLINT, MI",MEDICARE SUPPLEMENT,MS,VISION,0.0,0.0,0.0,1.0,,102.0,102 - SEVERE DEMENTIA
+    222C720211EE79B712933E434,222C720211EE79B712933E434,2023-07-01,202307,83,SUBSCRIBER,"FLINT, MI",MEDICARE,MP,VISION,0.0,0.0,0.0,1.0,,102.0,102 - SEVERE DEMENTIA
+    B6D25593757653ED083F7E816,B6D25593757653ED083F7E816,2023-09-01,202309,80,SUBSCRIBER,"WARREN-TROY-FARMINGTON HILLS, MI",MEDICARE,MP,RX,0.0,1.0,0.0,0.0,,102.0,102 - SEVERE DEMENTIA
+    F760929731123ECC986CE311B,F760929731123ECC986CE311B,2022-10-01,202210,85,SUBSCRIBER,"NON-MSA AREA, MI",MEDICARE SUPPLEMENT,MS,MEDICAL,1.0,0.0,0.0,0.0,,102.0,102 - SEVERE DEMENTIA
+    ''', language='text')
     
     st.sidebar.markdown("### 2. Create a Routine")
     st.sidebar.code('''Navigate to "Create Routine" to define a new exercise routine.''', language='text')
