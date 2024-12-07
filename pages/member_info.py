@@ -117,9 +117,9 @@ def main():
     111C5B708D4F5DA70CAC42607,111C5B708D4F5DA70CAC42607,F,,,485,"FLINT, MI",MI
     ''', language='text')
     
-    st.sidebar.markdown("### 3. Copy the output of #1 in Enrollment text box below the headers. Make sure not to overwrite the headers.")
+    st.sidebar.markdown("### 3. Copy the output of #1 in Enrollment text box below the headers. Do not overwrite the headers. If headers are deleted then refresh the page and copy the data below the headers.")
 
-    st.sidebar.markdown("### 4. Copy the output of #2 in Members text box below the headers. Make sure not to overwrite the headers.")
+    st.sidebar.markdown("### 4. Copy the output of #2 in Members text box below the headers. Do not overwrite the headers. If headers are deleted then refresh the page and copy the data below the headers.")
 
     st.header('Kūpunas')
     patients_df = fetch_patients()
