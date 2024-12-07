@@ -147,7 +147,6 @@ def insert_exercise_log(patient_id, routine_id, date_time, duration_minutes, moo
     conn.commit()
     conn.close()
 
-@st.cache_data
 def fetch_patients():
     conn = get_connection()
     query = """
