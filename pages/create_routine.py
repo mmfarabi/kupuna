@@ -184,7 +184,7 @@ def main():
                     for section, exercise in selected_exercises.items():
                         st.markdown(f"**{section} - {exercise['name']}**")
                         st.markdown(f"*{exercise['description']}*")
-                        st_player(exercise['video'])
+                        st.video(exercise['video'])
         
                 with col2:
                     st.markdown("### 🎵 Therapeutic Music")
