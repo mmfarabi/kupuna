@@ -161,8 +161,13 @@ def main():
                     st.markdown(f"**{exercise['name']}**")
                     
                     # Display the video
-                    st.video(exercise['video'])
-    
+                    if (len(exercises) > 1):
+                        st_player(exercise['video'])
+                    else:
+                        _,center,_ = st.columns([1,2,1])
+                        with center:
+                            st_player(exercise['video'])
+                        
         # Button to generate exercise routine
         if st.button("Create Routine"):
             st.subheader("Generated Routine")
@@ -196,7 +201,7 @@ def main():
                     st.markdown(playlist)
                     st.divider()
 
-                    st.markdown("#### 📺 YouTube Videos")
+                    st.markdown("#### 📺 Music Videos")
                     music_titles = find_music_links(playlist)
                     st.session_state["music_titles"] = music_titles
         
