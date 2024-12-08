@@ -94,9 +94,13 @@ def main():
             
             st.subheader("Exercises")
             if not exercises.empty:
-                ui.table(data=exercises)
+                phase_order = ["Warm-Up", "Movements", "Cool-Down and Closing"]
+                exercises["phase"] = pd.Categorical(exercises["phase"], categories=phase_order, ordered=True)
+
+                exercises_sorted = exercises.sort_values("phase")
+                ui.table(data=exercises_sorted)
                 
-                for _, exercise in exercises.iterrows():
+                for _, exercise in exercises_sorted.iterrows():
                     st.markdown(f"### {exercise['name']} ({exercise['phase']})")
                     st.write(exercise["description"])
                     if exercise["video"]:
