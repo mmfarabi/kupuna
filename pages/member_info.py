@@ -58,7 +58,7 @@ def assign_name(row):
         },
         "Chinese": {
             "M": ["David Zhang", "Li Wei", "John Wang"],
-            "F": ["Bill Mei", "Xiao Hong", "Joseph Yi"]
+            "F": ["Lillian Mei", "Xiao Hong", "Julia Yi"]
         }
     }
 
