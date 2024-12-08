@@ -100,7 +100,9 @@ def main():
                     st.markdown(f"### {exercise['name']} ({exercise['phase']})")
                     st.write(exercise["description"])
                     if exercise["video"]:
-                        st.video(exercise["video"])
+                        _,center,_ = st.columns([1,2,1])
+                        with center:
+                            st.video(exercise['video'])
             else:
                 st.write("No exercises found for this routine.")
     else:
