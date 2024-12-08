@@ -1,5 +1,6 @@
 import streamlit as st
 import streamlit_shadcn_ui as ui
+import pandas as pd
 
 from database import fetch_routines, get_exercises_for_routine
 from style_helper import apply_header
