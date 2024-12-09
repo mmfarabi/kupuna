@@ -14,7 +14,7 @@ Each year, over 55 million people worldwide struggle with cognitive decline, emo
 
 ## Technical Features
 ### 1. Member Info
-   - Coaches can insert data directly into the system by copying records from the [Lokahi dataset](https://lablab.ai/tech/lokahi-hackathon-datasets).
+   - Coaches can insert data directly into the system by copying records from Members and Enrollment in the [Lokahi dataset](https://lablab.ai/tech/lokahi-hackathon-datasets).
 ### 2. Create Routine
    - A coach creates a routine by first selecting the routine length and the kūpuna's mobility level. The routine has multiple phases (Warm-Ups, Movements, and Cool-Down). The coach picks one exercise for each phase.
    - The coach then sets age, gender and race of the kūpuna and clicks the "Create Routine" button.
