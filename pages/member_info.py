@@ -96,7 +96,7 @@ def main():
     # Add instructions in the sidebar
     st.sidebar.title("Adding Members")
     
-    st.sidebar.markdown("### 1. Find members with cognitive issues like dementia from Claims Enrollment CSV dataset.")
+    st.sidebar.markdown("### 1. Identify members with cognitive conditions such as dementia using the Claims Enrollment CSV from the [Lokahi dataset](https://lablab.ai/tech/lokahi-hackathon-datasets).")
     st.sidebar.write("Command:")
     st.sidebar.code('''fgrep DEMENTIA Claims_Enrollment_truncated.csv''', language='text')
     st.sidebar.write("Output:")
