@@ -105,7 +105,7 @@ def main():
     age = st.sidebar.number_input("Age", min_value=18, max_value=120, value=65, step=1)
     gender = st.sidebar.radio("Gender", ["Kāne (Male)", "Wahine (Female)", "Other"])
     ethnicity = st.sidebar.selectbox(
-        "Ethnicity",
+        "Race",
         ["Caucasian", "Native Hawaiian or Pacific Islander", "Filipino", "Portuguese", "Japanese", "Chinese", "Other"]
     )
     if ethnicity == "Other":
@@ -117,7 +117,7 @@ def main():
     st.sidebar.markdown("### Kūpuna Summary")
     st.sidebar.markdown(f"**Age**: {age}")
     st.sidebar.markdown(f"**Gender**: {gender}")
-    st.sidebar.markdown(f"**Ethnicity**: {ethnicity}")
+    st.sidebar.markdown(f"**Race**: {ethnicity}")
 
     # Mobility level selection
     mobility_level, routine_length = card_container(
@@ -193,7 +193,7 @@ def main():
                     st.markdown("#### 👤 Kūpuna Details")
                     st.markdown(f"- **Age**: {age}")
                     st.markdown(f"- **Gender**: {gender}")
-                    st.markdown(f"- **Ethnicity**: {ethnicity}")
+                    st.markdown(f"- **Race**: {ethnicity}")
                     st.divider()  # Adds a horizontal divider for better structure
 
                     st.markdown("#### 🎶 Music Titles")
