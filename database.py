@@ -256,7 +256,6 @@ def get_exercise_stats(patient_id, routine_id):
     FROM (
         SELECT 
             patient_id,
-            routine_id,
             COUNT(*) AS streak_count,
             MIN(date_time) AS start_date,
             MAX(date_time) AS end_date
@@ -267,12 +266,13 @@ def get_exercise_stats(patient_id, routine_id):
                 date_time,
                 date(date_time) - ROW_NUMBER() OVER (PARTITION BY patient_id, routine_id ORDER BY date_time) AS streak_group
             FROM exercise_logs
+            WHERE patient_id = ? AND routine_id = ?
         )
         GROUP BY patient_id, routine_id, streak_group
     )
-    WHERE patient_id = ? and routine_id = ?;
+    WHERE patient_id = ? AND routine_id = ?
     """
-    cursor.execute(query, (patient_id, routine_id,))
+    cursor.execute(query, (patient_id, routine_id, , patient_id, routine_id))
     result = cursor.fetchone()
     
     total_sessions = result[0] if result else 0
