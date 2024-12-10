@@ -75,16 +75,11 @@ def main():
             st.warning("No exercise log data available for the selected kūpuna and routine.")
             max_logged_date = None
 
-        # st.sidebar.header('Log a New Exercise')
-        # date_input = st.sidebar.date_input('Date')
-
-        with st.sidebar:
-            st.header('Log a New Exercise')
-            date_input = ui.date_picker(key="date_picker", label="Date")
-            
-        # duration_input = st.sidebar.number_input('Duration (minutes)', min_value=15)
-        # mood_level_input = st.sidebar.selectbox('Mood Level', [1, 2, 3, 4, 5])
-        #A comments_input = st.sidebar.text_area('Comments (optional)', '')
+        st.sidebar.header('Log a New Exercise')
+        date_input = st.sidebar.date_input('Date')
+        duration_input = st.sidebar.number_input('Duration (minutes)', min_value=15)
+        mood_level_input = st.sidebar.selectbox('Mood Level', [1, 2, 3, 4, 5])
+        comments_input = st.sidebar.text_area('Comments (optional)', '')
 
         # Button to save the new exercise log entry
         if st.sidebar.button('Enter Exercise Log'):
