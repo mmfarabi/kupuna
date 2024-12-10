@@ -27,6 +27,12 @@ def main():
       </div>
       """, unsafe_allow_html=True)
 
+    st.markdown("""
+    The Virtual Garden reward grows as the kūpuna stays consistent with the exercise routine! 
+    🌸 Each flower in the garden represents one exercise session, and the number of vibrant trees reflects the longest streak of consecutive days exercising. 
+    Watch the garden flourish as the kūpuna stays active! 🌱
+    """)
+    
     st.sidebar.image("https://raw.githubusercontent.com/datjandra/kupuna/refs/heads/main/images/logo.png")
 
     patient_routines_df = fetch_patient_routines()
