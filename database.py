@@ -270,7 +270,7 @@ def get_exercise_stats(patient_id, routine_id):
     )
     WHERE patient_id = ? and routine_id = ?;
     """
-    cursor.execute(query, (patient_id,))
+    cursor.execute(query, (patient_id, routine_id))
     result = cursor.fetchone()
     
     total_sessions = result[0] if result else 0
