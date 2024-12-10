@@ -33,9 +33,6 @@ def assign_race_ethnicity(row):
 
 # Set NAME based on MEM_GENDER, MEM_RACE, MEM_ETHNICITY
 def assign_name(row):
-
-    st.write(row)
-    
     # Gender-specific names for each race and ethnicity
     race_to_name = {
         "Caucasian": {
@@ -242,7 +239,12 @@ def main():
         merged_data = pd.merge(filtered_members_df, enrollment_df, on="PRIMARY_PERSON_KEY", how="inner")
     
         merged_data[["MEM_RACE", "MEM_ETHNICITY"]] = merged_data.apply(assign_race_ethnicity, axis=1)
-    
+
+        if "MEM_GENDER_x" in merged_data.columns and merged_data["MEM_GENDER_x"]:
+            merged_data.rename(columns={"MEM_GENDER_x": "MEM_GENDER"}, inplace=True)
+        elif "MEM_GENDER_y" in merged_data.columns and merged_data["MEM_GENDER_y"]:
+            merged_data.rename(columns={"MEM_GENDER_y": "MEM_GENDER"}, inplace=True)
+        
         merged_data["NAME"] = merged_data.apply(assign_name, axis=1)
 
         if "MEM_AGE_x" in merged_data.columns:
