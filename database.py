@@ -252,23 +252,20 @@ def get_exercise_stats(patient_id, routine_id):
     query = """
     SELECT 
         COUNT(*) AS total_sessions,
-        MAX(streak_count) AS longest_streak
+        MAX(streak_length) AS longest_streak
     FROM (
         SELECT 
-            patient_id,
-            COUNT(*) AS streak_count,
-            MIN(date_time) AS start_date,
-            MAX(date_time) AS end_date
+            COUNT(*) AS streak_length
         FROM (
             SELECT 
                 patient_id,
                 routine_id,
-                date_time,
-                date(date_time) - ROW_NUMBER() OVER (PARTITION BY patient_id, routine_id ORDER BY date_time) AS streak_group
+                DATE(date_time) AS exercise_date,
+                DATE(date_time) - ROW_NUMBER() OVER (PARTITION BY patient_id, routine_id ORDER BY DATE(date_time)) AS streak_group
             FROM exercise_logs
             WHERE patient_id = ? AND routine_id = ?
         )
-        GROUP BY patient_id, routine_id, streak_group
+        GROUP BY streak_group
     )
     WHERE patient_id = ? AND routine_id = ?
     """
