@@ -20,6 +20,10 @@ def main():
             <p>View Routines</p>
             <div class="icon">&#129488;</div>
           </a>
+          <a href="virtual_garden" target="_self" class="button-card">
+            <p>Virtual Garden</p>
+            <div class="icon">&#127802;</div>
+          </a>
           <a href="dementia_info" target="_self" class="button-card">
             <p>Dementia Info</p>
             <div class="icon">&#128106;</div>
