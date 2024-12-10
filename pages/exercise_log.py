@@ -79,7 +79,7 @@ def main():
         # date_input = st.sidebar.date_input('Date')
 
         with st.sidebar:
-            header('Log a New Exercise')
+            st.header('Log a New Exercise')
             date_input = ui.date_picker(key="date_picker", label="Date")
             
         # duration_input = st.sidebar.number_input('Duration (minutes)', min_value=15)
