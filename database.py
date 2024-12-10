@@ -242,3 +242,37 @@ def bulk_insert_patient(df):
     
     conn.commit()
     conn.close()
+
+def get_exercise_stats(patient_id):
+    # Connect to the database
+    conn = get_connection()
+    cursor = conn.cursor()
+    
+    # Query data
+    query = """
+    SELECT 
+        COUNT(*) AS total_sessions,
+        MAX(streak_count) AS longest_streak
+    FROM (
+        SELECT 
+            patient_id,
+            COUNT(*) AS streak_count,
+            MIN(date_time) AS start_date,
+            MAX(date_time) AS end_date
+        FROM (
+            SELECT 
+                patient_id,
+                date_time,
+                date(date_time) - ROW_NUMBER() OVER (PARTITION BY patient_id ORDER BY date_time) AS streak_group
+            FROM exercise_logs
+        )
+        GROUP BY patient_id, streak_group
+    )
+    WHERE patient_id = ?;
+    """
+    cursor.execute(query, (patient_id,))
+    result = cursor.fetchone()
+    
+    total_sessions = result[0] if result else 0
+    longest_streak = result[1] if result else 0
+    return total_sessions, longest_streak
