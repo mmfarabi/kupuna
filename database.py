@@ -151,7 +151,7 @@ def insert_exercise_log(patient_id, routine_id, date_time, duration_minutes, moo
 def fetch_patients():
     conn = get_connection()
     query = """
-    SELECT id, name, age, gender, ethnicity
+    SELECT id, name, age, gender, race
     FROM patients
     """
     patients = pd.read_sql(query, conn)
@@ -234,7 +234,7 @@ def bulk_insert_patient(df):
             "NAME": "name",
             "MEM_AGE": "age",
             "MEM_GENDER": "gender",
-            "MEM_RACE": "ethnicity"
+            "MEM_RACE": "race"
         }
     )
 
