@@ -30,7 +30,7 @@ def main():
     st.divider()
     st.markdown("""
     The Virtual Garden reward grows as the kūpuna stays consistent with the exercise routine! 
-    🌸 Each flower in the garden represents one exercise session, and the number of vibrant trees reflects the longest streak of consecutive days exercising. 
+    🌸 The number of flowers in the garden are proportional to the number of exercise sessions, and the number of vibrant trees reflects the longest streak of consecutive days exercising. 
     Watch the garden flourish as the kūpuna stays active! 🌱
     """)
     
