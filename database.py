@@ -5,10 +5,10 @@ import json
 import sqlite3
 import csv
 import bcrypt
-import datetime
 
 from io import StringIO
 from collections import defaultdict
+from datetime import datetime
 
 @st.cache_resource
 def load_exercise_data():
