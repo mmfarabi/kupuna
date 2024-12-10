@@ -240,9 +240,9 @@ def main():
     
         merged_data[["MEM_RACE", "MEM_ETHNICITY"]] = merged_data.apply(assign_race_ethnicity, axis=1)
 
-        if "MEM_GENDER_x" in merged_data.columns and merged_data["MEM_GENDER_x"]:
+        if "MEM_GENDER_x" in merged_data.columns and not pd.isna(merged_data["MEM_GENDER_x"]):
             merged_data.rename(columns={"MEM_GENDER_x": "MEM_GENDER"}, inplace=True)
-        elif "MEM_GENDER_y" in merged_data.columns and merged_data["MEM_GENDER_y"]:
+        elif "MEM_GENDER_y" in merged_data.columns and not pd.isna(merged_data["MEM_GENDER_y"]):
             merged_data.rename(columns={"MEM_GENDER_y": "MEM_GENDER"}, inplace=True)
         
         merged_data["NAME"] = merged_data.apply(assign_name, axis=1)
