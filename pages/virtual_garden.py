@@ -70,7 +70,7 @@ def main():
         image_link = f"{IMAGE_GEN_API}{formatted_prompt}"
 
         with st.spinner():
-            _,center,_ = st.columns(1,2,1)
+            _,center,_ = st.columns([1,2,1])
             with center:
                 st.image(image_link, use_container_width=True)
         
