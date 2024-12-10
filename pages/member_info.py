@@ -9,12 +9,13 @@ from database import fetch_patients, bulk_insert_patient
 
 # Define race categories and ethnicity mapping
 race_categories = [
-    "Caucasian", "Native Hawaiian or Pacific Islander", "Portuguese",
+    "Caucasian", "Black", "Native Hawaiian or Pacific Islander", "Portuguese",
     "Filipino", "Japanese", "Chinese"
 ]
 
 ethnicity_mapping = {
     "Caucasian": 2,  # Not Hispanic
+    "Black": 4,
     "Native Hawaiian or Pacific Islander": 3,  # Unknown
     "Portuguese": 2,  # Not Hispanic
     "Filipino": 1,  # Hispanic
@@ -37,28 +38,80 @@ def assign_name(row):
     # Gender-specific names for each race and ethnicity
     race_to_name = {
         "Caucasian": {
-            "M": ["Alexander Baldwin", "Henry Perrine", "Ethan Taylor"] if row["MEM_ETHNICITY"] == 2 else ["Juan Garcia", "Carlos Diaz", "Miguel Torres"],
-            "F": ["Emily Cooke", "Olivia Brown", "Sophia Harris"] if row["MEM_ETHNICITY"] == 2 else ["Maria Gonzalez", "Isabella Martinez", "Ana Lopez"]
+            "M": [
+                "Alexander Baldwin", "Henry Perrine", "Ethan Taylor", 
+                "William Scott", "James Hunter"
+            ] if row["MEM_ETHNICITY"] == 2 else [
+                "Juan Garcia", "Carlos Diaz", "Miguel Torres", 
+                "Luis Ramirez", "Pedro Sanchez"
+            ],
+            "F": [
+                "Emily Cooke", "Olivia Brown", "Sophia Harris", 
+                "Emma Thompson", "Charlotte Evans"
+            ] if row["MEM_ETHNICITY"] == 2 else [
+                "Maria Gonzalez", "Isabella Martinez", "Ana Lopez", 
+                "Lucia Morales", "Elena Navarro"
+            ]
         },
         "Native Hawaiian or Pacific Islander": {
-            "M": ["Mike Malu", "Noah Kaipo", "Lani Kealoha"],
-            "F": ["Leilani Aloha", "Moana Kea", "Jennifer Lani"]
+            "M": [
+                "Mike Malu", "Noah Kaipo", "Lani Kealoha", 
+                "Kimo Hekili", "Koa Malakai"
+            ],
+            "F": [
+                "Leilani Aloha", "Moana Kea", "Jennifer Lani", 
+                "Hina Kaleo", "Debbie Makana"
+            ]
         },
         "Portuguese": {
-            "M": ["Antonio Silva", "Manuel Sousa", "Joao Mendes"],
-            "F": ["Sofia Costa", "Isabel Ferreira", "Ana Oliveira"]
+            "M": [
+                "Antonio Silva", "Manuel Sousa", "Joao Mendes", 
+                "Carlos Almeida", "Francisco Moreira"
+            ],
+            "F": [
+                "Sofia Costa", "Isabel Ferreira", "Ana Oliveira", 
+                "Catarina Rocha", "Teresa Pires"
+            ]
         },
         "Filipino": {
-            "M": ["Jose Rizal", "Andres Bonifacio", "Manuel Quezon"],
-            "F": ["Maria Clara", "Gabriela Silang", "Corazon Aquino"]
+            "M": [
+                "Jose Rizal", "Andres Bonifacio", "Manuel Quezon", 
+                "Ramon Magsaysay", "Lapu-Lapu"
+            ],
+            "F": [
+                "Maria Clara", "Gabriela Silang", "Corazon Aquino", 
+                "Imelda Santos", "Jocelyn Cruz"
+            ]
         },
         "Japanese": {
-            "M": ["Greg Tanaka", "Hiroshi Yamamoto", "Steve Suzuki"],
-            "F": ["Mary Sato", "Akiko Nakamura", "Eunice Takahashi"]
+            "M": [
+                "Greg Tanaka", "Hiroshi Yamamoto", "Steve Suzuki", 
+                "Kenji Takeda", "Kevin Kobayashi"
+            ],
+            "F": [
+                "Mary Sato", "Akiko Nakamura", "Eunice Takahashi", 
+                "Hana Matsumoto", "Yuki Fujimoto"
+            ]
         },
         "Chinese": {
-            "M": ["David Zhang", "Li Wei", "John Wang"],
-            "F": ["Lillian Mei", "Xiao Hong", "Julia Yi"]
+            "M": [
+                "David Zhang", "Li Wei", "John Wang", 
+                "Kevin Chen", "Tony Huang"
+            ],
+            "F": [
+                "Lillian Mei", "Xiao Hong", "Julia Yi", 
+                "Angela Lin", "Grace Liu"
+            ]
+        },
+        "Black": {
+            "M": [
+                "James Brown", "Michael Johnson", "William Robinson", 
+                "David Carter", "Joseph Harris"
+            ],
+            "F": [
+                "Ava Jackson", "Emma Washington", "Sophia Jefferson", 
+                "Olivia Brooks", "Maya Scott"
+            ]
         }
     }
 
