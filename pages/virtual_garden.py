@@ -1,8 +1,13 @@
 import streamlit as st
 import streamlit_shadcn_ui as ui
+import os
+import urllib.parse
 
 from style_helper import apply_header
 from database import get_exercise_stats, fetch_patient_routines
+
+IMAGE_GEN_API = os.getenv('IMAGE_GEN_API')
+IMAGE_GEN_PROMPT = os.getenv('IMAGE_GEN_PROMPT')
 
 def main():    
     apply_header()
@@ -53,6 +58,12 @@ def main():
           ui.metric_card(title="Total Sessions", content=total_sessions, key="total-sessions")
         with cols[1]:
           ui.metric_card(title="Longest Streak", content=longest_streak, key="longest-streak")
-   
+
+        formatted_prompt = urllib.parse.quote(IMAGE_GEN_PROMPT.format(total_sessions=total_sessions, longest_streak=longest_streak))
+        image_link = f"{IMAGE_GEN_API}{formatted_prompt}"
+
+        with st.spinner():
+            st.image(image_link, use_container_width=True)
+        
 if __name__ == "__main__":
     main()
