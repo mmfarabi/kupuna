@@ -44,12 +44,13 @@ def main():
         selected_patient_id = patient_routines_df.loc[patient_routines_df['patient_name'] == selected_patient_name, 'patient_id'].values[0]
         selected_routine_id = patient_routines_df.loc[patient_routines_df['routine_name'] == selected_routine_name, 'routine_id'].values[0]
 
-    total_sessions, longest_streak = get_exercise_stats(selected_patient_id, selected_routine_id)
-    cols = st.columns(2)
-    with cols[0]:
-      ui.metric_card(title="Total Sessions", content=total_sessions, key="total-sessions")
-    with cols[1]:
-      ui.metric_card(title="Longest Streak", content=longest_streak, key="longest-streak")
+    if selected_patient_id and selected_routine_id:
+        total_sessions, longest_streak = get_exercise_stats(selected_patient_id, selected_routine_id)
+        cols = st.columns(2)
+        with cols[0]:
+          ui.metric_card(title="Total Sessions", content=total_sessions, key="total-sessions")
+        with cols[1]:
+          ui.metric_card(title="Longest Streak", content=longest_streak, key="longest-streak")
    
 if __name__ == "__main__":
     main()
