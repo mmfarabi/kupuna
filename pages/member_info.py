@@ -15,7 +15,7 @@ race_categories = [
 
 ethnicity_mapping = {
     "Caucasian": 2,  # Not Hispanic
-    "Black": 4,
+    "Black": 3,
     "Native Hawaiian or Pacific Islander": 3,  # Unknown
     "Portuguese": 2,  # Not Hispanic
     "Filipino": 1,  # Hispanic
@@ -25,11 +25,9 @@ ethnicity_mapping = {
 
 # Fill missing MEM_RACE and set MEM_ETHNICITY
 def assign_race_ethnicity(row):
-    # if pd.isna(row["MEM_RACE"]):
     race = random.choice(race_categories)
     ethnicity = ethnicity_mapping[race]
     return pd.Series([race, ethnicity])
-    # return pd.Series([row["MEM_RACE"], row["MEM_ETHNICITY"]])
 
 # Set NAME based on MEM_GENDER, MEM_RACE, MEM_ETHNICITY
 def assign_name(row):
