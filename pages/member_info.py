@@ -33,6 +33,9 @@ def assign_race_ethnicity(row):
 
 # Set NAME based on MEM_GENDER, MEM_RACE, MEM_ETHNICITY
 def assign_name(row):
+
+    st.write(row)
+    
     # Gender-specific names for each race and ethnicity
     race_to_name = {
         "Caucasian": {
