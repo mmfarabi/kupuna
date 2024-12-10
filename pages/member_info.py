@@ -172,7 +172,7 @@ def main():
 
     st.sidebar.markdown("### 4. Copy the output of #2 in Members text box below the headers. Do not overwrite the headers. If headers are deleted then refresh the page and copy the data below the headers.")
 
-    st.sidebar.markdown("### 5. Click \"Insert Members\" button to insert the members. Race will be randomly assigned if not specified, and name will be randomly created from race.")
+    st.sidebar.markdown("### 5. Click \"Insert Members\" button to insert the members. Race will be randomly assigned, and name will be randomly assigned from race and gender.")
 
     st.sidebar.markdown("### 6. To create a new exercise routine click the \"Create Routine\" button.")
 
