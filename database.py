@@ -243,7 +243,7 @@ def bulk_insert_patient(df):
     conn.commit()
     conn.close()
 
-def get_exercise_stats(patient_id):
+def get_exercise_stats(patient_id, routine_id):
     # Connect to the database
     conn = get_connection()
     cursor = conn.cursor()
@@ -268,7 +268,7 @@ def get_exercise_stats(patient_id):
         )
         GROUP BY patient_id, streak_group
     )
-    WHERE patient_id = ?;
+    WHERE patient_id = ? and routine_id = ?;
     """
     cursor.execute(query, (patient_id,))
     result = cursor.fetchone()
