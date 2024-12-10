@@ -106,7 +106,7 @@ def main():
     gender = st.sidebar.radio("Gender", ["Kāne (Male)", "Wahine (Female)", "Other"])
     ethnicity = st.sidebar.selectbox(
         "Race",
-        ["Caucasian", "Native Hawaiian or Pacific Islander", "Filipino", "Portuguese", "Japanese", "Chinese", "Other"]
+        ["Caucasian", "Black", "Native Hawaiian or Pacific Islander", "Filipino", "Portuguese", "Japanese", "Chinese", "Other"]
     )
     if ethnicity == "Other":
         other_ethnicity = st.sidebar.text_input("Please specify ethnicity")
