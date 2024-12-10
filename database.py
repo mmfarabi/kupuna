@@ -265,7 +265,7 @@ def get_exercise_stats(patient_id, routine_id):
         return 0, 0
     
     # Calculate streaks in Python
-    dates = [datetime.strptime(row[0], "%Y-%m-%d %H:%M:%S").date() for row in rows]
+    dates = [datetime.strptime(row[0], "%Y-%m-%d").date() for row in rows]
     streaks = []
     current_streak = 1
 
