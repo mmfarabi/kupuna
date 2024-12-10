@@ -161,7 +161,7 @@ def main():
     
     st.sidebar.markdown("### 2. Now find members by MEMBER_ID from combined Claims Member CSV dataset.")
     st.sidebar.write("Command:")
-    st.sidebar.code('''grep -E "7A406DA9B06D5E514D328418F|111C5B708D4F5DA70CAC42607|222C720211EE79B712933E434" combined_data_member.csv''', language='text')
+    st.sidebar.code('''grep -E "7A406DA9B06D5E514D328418F|F2F1E2D2A72DC946BAF56240B|222C720211EE79B712933E434" combined_data_member.csv''', language='text')
     st.sidebar.write("Output:")
     st.sidebar.code('''
     7A406DA9B06D5E514D328418F,7A406DA9B06D5E514D328418F,F,,,968,"URBAN HONOLULU, HI",HI
