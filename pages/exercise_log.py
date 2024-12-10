@@ -76,7 +76,9 @@ def main():
             max_logged_date = None
 
         st.sidebar.header('Log a New Exercise')
-        date_input = st.sidebar.date_input('Date')
+        # date_input = st.sidebar.date_input('Date')
+
+        date_input = st.sidebar.ui.date_picker(key="date_picker", label="Date")
         duration_input = st.sidebar.number_input('Duration (minutes)', min_value=15)
         mood_level_input = st.sidebar.selectbox('Mood Level', [1, 2, 3, 4, 5])
         comments_input = st.sidebar.text_area('Comments (optional)', '')
