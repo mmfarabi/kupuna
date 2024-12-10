@@ -38,12 +38,14 @@ def main():
     )
 
     # Check if a selection has been made
+    selected_patient_id = None
+    selected_routine_id = None
     if selected_patient_routine:
         # Extract selected patient and routine IDs
         selected_patient_name, selected_routine_name = selected_patient_routine.split(' - ')
         selected_patient_id = patient_routines_df.loc[patient_routines_df['patient_name'] == selected_patient_name, 'patient_id'].values[0]
         selected_routine_id = patient_routines_df.loc[patient_routines_df['routine_name'] == selected_routine_name, 'routine_id'].values[0]
-
+        
     if selected_patient_id and selected_routine_id:
         total_sessions, longest_streak = get_exercise_stats(selected_patient_id, selected_routine_id)
         cols = st.columns(2)
