@@ -250,28 +250,34 @@ def get_exercise_stats(patient_id, routine_id):
     
     # Query data
     query = """
-    SELECT 
-        COUNT(*) AS total_sessions,
-        MAX(streak_length) AS longest_streak
-    FROM (
-        SELECT 
-            COUNT(*) AS streak_length
-        FROM (
-            SELECT 
-                patient_id,
-                routine_id,
-                DATE(date_time) AS exercise_date,
-                DATE(date_time) - ROW_NUMBER() OVER (PARTITION BY patient_id, routine_id ORDER BY DATE(date_time)) AS streak_group
-            FROM exercise_logs
-            WHERE patient_id = ? AND routine_id = ?
-        )
-        GROUP BY streak_group
-    )
+    SELECT date_time 
+    FROM exercise_logs
     WHERE patient_id = ? AND routine_id = ?
+    ORDER BY date_time
     """
-    cursor.execute(query, (patient_id, routine_id, patient_id, routine_id))
-    result = cursor.fetchone()
     
-    total_sessions = result[0] if result else 0
-    longest_streak = result[1] if result else 0
+    cursor.execute(query, (patient_id, routine_id))
+    rows = cursor.fetchall()
+
+    if not rows:
+        conn.close()
+        return 0, 0
+    
+    # Calculate streaks in Python
+    dates = [datetime.strptime(row[0], "%Y-%m-%d %H:%M:%S").date() for row in rows]
+    streaks = []
+    current_streak = 1
+
+    for i in range(1, len(dates)):
+        if (dates[i] - dates[i - 1]).days == 1:
+            current_streak += 1
+        else:
+            streaks.append(current_streak)
+            current_streak = 1
+    streaks.append(current_streak)
+
+    total_sessions = len(dates)
+    longest_streak = max(streaks)
+
+    conn.close()
     return total_sessions, longest_streak
