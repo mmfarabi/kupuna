@@ -2,6 +2,9 @@ import streamlit as st
 import streamlit_shadcn_ui as ui
 import os
 import urllib.parse
+from PIL import Image
+import requests
+from io import BytesIO
 
 from style_helper import apply_header, apply_footer
 from database import get_exercise_stats, fetch_patient_routines
