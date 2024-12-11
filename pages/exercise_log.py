@@ -6,7 +6,7 @@ import seaborn as sns
 import streamlit_shadcn_ui as ui
 
 from database import fetch_routines, fetch_patients, fetch_patient_routines, fetch_exercise_logs, insert_exercise_log
-from style_helper import apply_header
+from style_helper import apply_header, apply_footer
 
 def main():
     apply_header()
@@ -101,6 +101,8 @@ def main():
                 
     else:
         st.warning("Please select a kūpuna and routine combination to track mood levels and log data.")        
+
+    apply_footer()
 
 if __name__ == "__main__":
     main()
