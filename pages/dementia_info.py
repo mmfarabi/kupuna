@@ -1,6 +1,6 @@
 import streamlit as st
 
-from style_helper import apply_header
+from style_helper import apply_header, apply_footer
 
 def main():    
     apply_header()
@@ -91,5 +91,7 @@ def main():
     Dementia is a challenging condition, but with the aloha spirit and support from your `ohana`, you can create a loving and supportive environment for those affected. Remember to take care of yourself too—caring for a loved one is a journey best shared with others.
     """)
 
+    apply_footer()
+    
 if __name__ == "__main__":
     main()
