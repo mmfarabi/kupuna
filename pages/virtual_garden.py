@@ -78,13 +78,13 @@ def main():
         image_link = f"{IMAGE_GEN_API}{formatted_prompt}"
 
         with st.spinner("Loading your garden..."):
-        try:
-            image = load_image(image_link)
-            _,center,_ = st.columns([1,2,1])
-            with center:
-                st.image(image, use_container_width=True)
-        except Exception as e:
-            st.error("Failed to load the virtual garden. Please try again later.")
+            try:
+                image = load_image(image_link)
+                _,center,_ = st.columns([1,2,1])
+                with center:
+                    st.image(image, use_container_width=True)
+            except Exception as e:
+                st.error("Failed to load the virtual garden. Please try again later.")
 
     apply_footer()
     
