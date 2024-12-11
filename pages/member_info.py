@@ -4,7 +4,7 @@ import random
 import io
 import streamlit_shadcn_ui as ui
 
-from style_helper import apply_header
+from style_helper import apply_header, apply_footer
 from database import fetch_patients, bulk_insert_patient
 
 # Define race categories and ethnicity mapping
@@ -249,6 +249,8 @@ def main():
 
         bulk_insert_patient(final_data)
         st.rerun()
+
+        apply_footer()
 
 if __name__ == "__main__":
     main()
