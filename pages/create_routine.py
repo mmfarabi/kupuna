@@ -6,7 +6,7 @@ import google.generativeai as genai
 import streamlit_shadcn_ui as ui
 
 from streamlit_player import st_player
-from style_helper import apply_header, card_container
+from style_helper import apply_header, card_container, apply_footer
 from database import get_all_exercises, insert_routine
 
 GEM_MODEL = os.getenv('GEM_MODEL')
@@ -232,6 +232,8 @@ def main():
                     exercise_ids = [int(exercise["id"]) for exercise in selected_exercises.values()]
                     insert_routine(routine_name, routine_description, music_field, exercise_ids)
                     st.success(f'Routine {routine_name} has been created. Please click "Assign Routine" button to assign routine to a kūpuna.')
+
+        apply_footer()
 
 if __name__ == "__main__":
     main()
