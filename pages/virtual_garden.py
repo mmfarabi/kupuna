@@ -3,7 +3,7 @@ import streamlit_shadcn_ui as ui
 import os
 import urllib.parse
 
-from style_helper import apply_header
+from style_helper import apply_header, apply_footer
 from database import get_exercise_stats, fetch_patient_routines
 
 IMAGE_GEN_API = os.getenv('IMAGE_GEN_API')
@@ -73,6 +73,8 @@ def main():
             _,center,_ = st.columns([1,2,1])
             with center:
                 st.image(image_link, use_container_width=True)
-        
+    
+    apply_footer()
+    
 if __name__ == "__main__":
     main()
