@@ -22,7 +22,7 @@ def apply_header():
   st.markdown(html_content, unsafe_allow_html=True)
 
 def apply_footer():  
-  st.markdown(STYLE_CSS, unsafe_allow_html=True)
+  # st.markdown(STYLE_CSS, unsafe_allow_html=True)
   
   html_content = """<div class="footer">
     <p>© 2024 Kūpuna Care.</p>
