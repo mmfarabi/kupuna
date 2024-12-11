@@ -33,4 +33,7 @@ Each year, over 55 million people worldwide struggle with cognitive decline, emo
 ### 6. Dementia Info
    - This page contains general information about dementia including definition, common signs, causes, and care instructions.
    - Helpful links are provided for dementia information in Hawaii, the U.S, and globally.
+### 7. Virtual Garden
+   - A gamification feature that allow kūpunas to grow a digital garden with each completed exercise session, providing visual motivation.
+   - The number of flowers in the garden are proportional to the number of exercise sessions, and the number of trees reflects the longest streak of consecutive days exercising. 
 
