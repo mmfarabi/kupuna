@@ -6,7 +6,7 @@ import google.generativeai as genai
 import streamlit_shadcn_ui as ui
 
 from streamlit_player import st_player
-from style_helper import apply_header, card_container
+from style_helper import apply_header
 from database import get_all_exercises, insert_routine
 
 GEM_MODEL = os.getenv('GEM_MODEL')
