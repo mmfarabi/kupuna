@@ -3,7 +3,7 @@ import streamlit_shadcn_ui as ui
 import pandas as pd
 
 from database import fetch_routines, get_exercises_for_routine
-from style_helper import apply_header
+from style_helper import apply_header, apply_footer
 
 def main():    
     apply_header()
@@ -112,6 +112,8 @@ def main():
                 st.write("No exercises found for this routine.")
     else:
         st.write("No routines available.")
+
+    apply_footer()
 
 if __name__ == "__main__":
     main()
