@@ -216,9 +216,11 @@ def main():
     """
     enrollment_csv = st.text_area("Enrollment", value=enrollment.strip(), height=300)
 
+    insert_members = st.button("Insert Members")
+    
     apply_footer()
     
-    if st.button("Insert Members"):
+    if insert_members:
         members_df = pd.read_csv(io.StringIO(members_csv))
         enrollment_df = pd.read_csv(io.StringIO(enrollment_csv))
 
