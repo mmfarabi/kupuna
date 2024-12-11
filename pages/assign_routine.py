@@ -1,7 +1,7 @@
 import streamlit as st
 import streamlit_shadcn_ui as ui
 
-from style_helper import apply_header
+from style_helper import apply_header, apply_footer
 from database import fetch_patients, fetch_routines, assign_patient_to_routine
 
 def main():    
@@ -76,6 +76,8 @@ def main():
             st.sidebar.warning("Please select a valid kūpuna and routine.")
     else:
         st.warning("Unable to assign routine as kūpuna or routine data is missing.")
+
+    apply_footer()
 
 if __name__ == "__main__":
     main()
