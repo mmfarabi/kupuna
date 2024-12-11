@@ -1,7 +1,7 @@
 import streamlit as st
 import bcrypt
 
-from style_helper import apply_header
+from style_helper import apply_header, apply_footer
 from database import initialize_database, get_user, add_user
 
 def login_page(col):
@@ -59,6 +59,8 @@ def main():
         with st.expander("Test Users"):
             st.code("Username: don\nPassword: password\nRole: coach")        
             st.code("Username: deb\nPassword: password\nRole: caregiver")
+
+    apply_footer()
 
 if __name__ == "__main__":
     main()
