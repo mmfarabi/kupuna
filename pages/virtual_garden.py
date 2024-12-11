@@ -77,14 +77,15 @@ def main():
         formatted_prompt = urllib.parse.quote(IMAGE_GEN_PROMPT.format(total_sessions=total_sessions, longest_streak=longest_streak))
         image_link = f"{IMAGE_GEN_API}{formatted_prompt}"
 
+        _,center,_ = st.columns([1,2,1])
         with st.spinner("Loading your garden..."):
             try:
                 image = load_image(image_link)
-                _,center,_ = st.columns([1,2,1])
                 with center:
                     st.image(image, use_container_width=True)
             except Exception as e:
-                st.error("Failed to load the virtual garden. Please try again later.")
+                with center:
+                    st.image(image_link, use_container_width=True)
 
     apply_footer()
     
