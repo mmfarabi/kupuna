@@ -216,6 +216,8 @@ def main():
     """
     enrollment_csv = st.text_area("Enrollment", value=enrollment.strip(), height=300)
 
+    apply_footer()
+    
     if st.button("Insert Members"):
         members_df = pd.read_csv(io.StringIO(members_csv))
         enrollment_df = pd.read_csv(io.StringIO(enrollment_csv))
@@ -249,8 +251,6 @@ def main():
 
         bulk_insert_patient(final_data)
         st.rerun()
-
-        apply_footer()
 
 if __name__ == "__main__":
     main()
