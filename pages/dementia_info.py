@@ -1,6 +1,6 @@
 import streamlit as st
 
-from style_helper import apply_header, card_container
+from style_helper import apply_header
 
 def main():    
     apply_header()
