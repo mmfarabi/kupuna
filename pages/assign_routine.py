@@ -1,7 +1,7 @@
 import streamlit as st
 import streamlit_shadcn_ui as ui
 
-from style_helper import apply_header, card_container
+from style_helper import apply_header
 from database import fetch_patients, fetch_routines, assign_patient_to_routine
 
 def main():    
