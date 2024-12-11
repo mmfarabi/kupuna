@@ -12,6 +12,11 @@ from database import get_exercise_stats, fetch_patient_routines
 IMAGE_GEN_API = os.getenv('IMAGE_GEN_API')
 IMAGE_GEN_PROMPT = os.getenv('IMAGE_GEN_PROMPT')
 
+def load_image(url):
+    response = requests.get(url)
+    response.raise_for_status()  # Ensure the request was successful
+    return Image.open(BytesIO(response.content))
+
 def main():    
     apply_header()
     st.title("Virtual Garden")
@@ -72,11 +77,15 @@ def main():
         formatted_prompt = urllib.parse.quote(IMAGE_GEN_PROMPT.format(total_sessions=total_sessions, longest_streak=longest_streak))
         image_link = f"{IMAGE_GEN_API}{formatted_prompt}"
 
-        with st.spinner():
+        with st.spinner("Loading your garden..."):
+        try:
+            image = load_image(image_link)
             _,center,_ = st.columns([1,2,1])
             with center:
-                st.image(image_link, use_container_width=True)
-    
+                st.image(image, use_container_width=True)
+        except Exception as e:
+            st.error("Failed to load the virtual garden. Please try again later.")
+
     apply_footer()
     
 if __name__ == "__main__":
