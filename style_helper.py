@@ -2,6 +2,7 @@ import streamlit as st
 import os
 
 from streamlit_extras.stylable_container import stylable_container
+from streamlit_extras.bottom_container import bottom
 
 STYLE_CSS = os.getenv('STYLE_CSS')
 
@@ -27,7 +28,9 @@ def apply_footer():
   html_content = """<div class="footer">
     <p>© 2024 Kūpuna Care.</p>
   </div>"""
-  st.markdown(html_content, unsafe_allow_html=True)
+
+  with bottom():
+    st.markdown(html_content, unsafe_allow_html=True)
 
 def card_container(key, content_func, *args, **kwargs):
     # Create a container to group components
