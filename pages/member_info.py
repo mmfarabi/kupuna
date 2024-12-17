@@ -246,7 +246,7 @@ def main():
         # Merge datasets on PRIMARY_PERSON_KEY
         merged_data = pd.merge(filtered_members_df, enrollment_df, on="PRIMARY_PERSON_KEY", how="inner")
     
-        merged_data[["MEM_RACE", "MEM_ETHNICITY"]] = merged_data.apply(assign_race_ethnicity, axis=1)
+        merged_data[["MEM_RACE", "MEM_ETHNICITY"]] = merged_data.apply(assign_race_ethnicity, axis=1).apply(pd.Series)
 
         if "MEM_GENDER_x" in merged_data.columns and merged_data["MEM_GENDER_x"].notna().any():
             merged_data.rename(columns={"MEM_GENDER_x": "MEM_GENDER"}, inplace=True)
