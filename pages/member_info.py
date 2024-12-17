@@ -27,7 +27,8 @@ ethnicity_mapping = {
 def assign_race_ethnicity(row):
     race = random.choice(race_categories)
     ethnicity = ethnicity_mapping[race]
-    return pd.Series([race, ethnicity])
+    # return pd.Series([race, ethnicity])
+    return race, ethnicity
 
 # Set NAME based on MEM_GENDER, MEM_RACE, MEM_ETHNICITY
 def assign_name(row):
