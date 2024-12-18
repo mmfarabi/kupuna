@@ -123,6 +123,20 @@ def assign_name(row):
     # Randomly pick a name from the list
     return random.choice(gender_names)
 
+def clean_csv_data(csv_data: str) -> pd.DataFrame:
+    try:
+        # Read the CSV data into a DataFrame
+        csv_io = io.StringIO(csv_data)
+        df = pd.read_csv(csv_io)
+
+        # Clean each cell in the DataFrame
+        for col in df.columns:
+            df[col] = df[col].apply(lambda x: x.strip() if isinstance(x, str) else x)
+
+        return df
+    except Exception as e:
+        raise ValueError(f"Failed to clean CSV data: {e}")
+
 def main():    
     apply_header()
     st.title("Member Info")
@@ -233,8 +247,8 @@ def main():
     apply_footer()
     
     if insert_members:
-        members_df = pd.read_csv(io.StringIO(members_csv))
-        enrollment_df = pd.read_csv(io.StringIO(enrollment_csv))
+        members_df = clean_csv_data(members_csv)
+        enrollment_df = clean_csv_data(enrollment_csv)
 
         # Perform the filtering
         filtered_members_df = members_df.merge(
