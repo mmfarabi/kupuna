@@ -163,7 +163,7 @@ def main():
     st.sidebar.markdown("""
     ### Instructions for Adding Members
     
-    Follow these steps to insert data from the **Members** and **Enrollment** [Lokahi dataset](https://lablab.ai/tech/lokahi-hackathon-datasets) into the database table:
+    Follow these steps to insert data from **Members** and **Enrollment** CSV datasets into the database table:
     
     ---
     
