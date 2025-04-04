@@ -15,6 +15,9 @@ def load_exercise_data():
     return json.loads(os.getenv("EXERCISES"))
 
 def get_connection():
+    # Create the database file if it doesn't exist
+    if not os.path.exists('kupuna.db'):
+        open('kupuna.db', 'w').close()
     conn = sqlite3.connect('kupuna.db')
     return conn
 
@@ -25,37 +28,43 @@ def initialize_database():
     Ensures initialization runs only once per session.
     """
     if "db_initialized" not in st.session_state:
-        # Load database URL from TOML config
         conn = get_connection()
         cursor = conn.cursor()
 
-        schema = os.getenv("SCHEMA_SQL")
-        cursor.executescript(schema)
-        
-        exercise_data = load_exercise_data()
-        # Insert data into the database
-        for mobility, lengths in exercise_data.items():
-            for length, phases in lengths.items():
-                for phase, exercises in phases.items():
-                    for exercise in exercises:
-                        cursor.execute('''
-                            INSERT INTO exercises (mobility, length, phase, name, description, video)
-                            VALUES (?, ?, ?, ?, ?, ?)
-                        ''', (mobility, length, phase, exercise['name'], exercise['description'], exercise['video']))
+        # Check if tables already exist
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='exercises'")
+        table_exists = cursor.fetchone()
 
-        # Insert test users
-        users = os.getenv("USERS")
-        csv_reader = csv.DictReader(StringIO(users))
-        for row in csv_reader:
-            try:
-                cursor.execute('''
-                    INSERT INTO users (username, password, role)
-                    VALUES (?, ?, ?)
-                ''', (row['username'], bcrypt.hashpw(row['password'].encode(), bcrypt.gensalt()), row['role']))
-            except:
-                continue
-          
-        conn.commit()
+        if not table_exists:
+            # Create tables if they don't exist
+            schema = os.getenv("SCHEMA_SQL")
+            cursor.executescript(schema)
+            
+            exercise_data = load_exercise_data()
+            # Insert data into the database
+            for mobility, lengths in exercise_data.items():
+                for length, phases in lengths.items():
+                    for phase, exercises in phases.items():
+                        for exercise in exercises:
+                            cursor.execute('''
+                                INSERT INTO exercises (mobility, length, phase, name, description, video)
+                                VALUES (?, ?, ?, ?, ?, ?)
+                            ''', (mobility, length, phase, exercise['name'], exercise['description'], exercise['video']))
+
+            # Insert test users
+            users = os.getenv("USERS")
+            csv_reader = csv.DictReader(StringIO(users))
+            for row in csv_reader:
+                try:
+                    cursor.execute('''
+                        INSERT INTO users (username, password, role)
+                        VALUES (?, ?, ?)
+                    ''', (row['username'], bcrypt.hashpw(row['password'].encode(), bcrypt.gensalt()), row['role']))
+                except:
+                    continue
+              
+            conn.commit()
+        
         conn.close()
         st.session_state["db_initialized"] = True  # Mark initialization as complete
 
