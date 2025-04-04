@@ -22,8 +22,14 @@ model = genai.GenerativeModel(
     }
 )
 
+import json
+
+# Load exercise routines from the JSON file
+with open("exercise_routines.json", "r") as file:
+    exercise_data = json.load(file)
+
 # Dictionary of songs and their corresponding YouTube links
-youtube_links = json.loads(os.getenv('YOUTUBE_LINKS'))
+#youtube_links = json.loads(os.getenv('YOUTUBE_LINKS'))
 
 @st.cache_data
 def generate_playlist(age, gender, ethnicity):
@@ -96,7 +102,8 @@ def main():
       """, unsafe_allow_html=True)
 
     # Load exercise routines
-    exercise_data = get_all_exercises()
+    #exercise_data = get_all_exercises()
+    exercise_data = json.load(open("exercise_routines.json"))
 
     st.sidebar.image("https://raw.githubusercontent.com/datjandra/kupuna/refs/heads/main/images/logo.png")
     
