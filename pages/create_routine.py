@@ -22,14 +22,13 @@ model = genai.GenerativeModel(
     }
 )
 
-import json
-
 # Load exercise routines from the JSON file
 with open("exercise_routines.json", "r") as file:
     exercise_data = json.load(file)
+    youtube_links = json.load(file)
 
 # Dictionary of songs and their corresponding YouTube links
-youtube_links = json.loads(os.getenv('YOUTUBE_LINKS'))
+#youtube_links = json.loads(os.getenv('YOUTUBE_LINKS'))
 
 @st.cache_data
 def generate_playlist(age, gender, ethnicity):
@@ -55,7 +54,8 @@ def find_music_links(markdown_text):
         if normalized_title in markdown_text_normalized:
             # Print only if a match is found
             st.write(title)
-            st_player(f'https://www.youtube.com/watch?v={video_id}')
+            #st_player(f'https://www.youtube.com/watch?v={video_id}')
+            st_player(f'https://www.youtube.com/watch?v={id}')
             music_titles.append(title)
     return ", ".join(music_titles)
 
