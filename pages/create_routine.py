@@ -23,9 +23,19 @@ model = genai.GenerativeModel(
 )
 
 # Load exercise routines from the JSON file
-with open("exercise_routines.json", "r") as file:
-    exercise_data = json.load(file)
-    youtube_links = json.load(file)
+
+def load_exercise_data():
+    try:
+        with open("exercise_routines.json", "r") as file:
+            return json.load(file)
+    except FileNotFoundError:
+        st.error("Configuration file not found. Please contact support.")
+        st.stop()
+    except json.JSONDecodeError:
+        st.error("Invalid JSON format in configuration file.")
+        st.stop()
+
+exercise_data = load_exercise_data()
 
 # Dictionary of songs and their corresponding YouTube links
 #youtube_links = json.loads(os.getenv('YOUTUBE_LINKS'))
@@ -49,13 +59,13 @@ def find_music_links(markdown_text):
     markdown_text_normalized = normalize_text(markdown_text)
 
     # Search for song titles in the markdown text
-    for title, video_id in youtube_links.items():
+    for title, video_id in exercise_data.items():
         normalized_title = normalize_text(title)
         if normalized_title in markdown_text_normalized:
             # Print only if a match is found
             st.write(title)
-            #st_player(f'https://www.youtube.com/watch?v={video_id}')
-            st_player(f'https://www.youtube.com/watch?v={id}')
+            st_player(f'https://www.youtube.com/watch?v={video_id}')
+            #st_player(f'https://www.youtube.com/watch?v={id}')
             music_titles.append(title)
     return ", ".join(music_titles)
 
@@ -103,7 +113,7 @@ def main():
 
     # Load exercise routines
     #exercise_data = get_all_exercises()
-    exercise_data = json.load(open("exercise_routines.json"))
+    #exercise_data = json.load(open("exercise_routines.json"))
 
     st.sidebar.image("https://raw.githubusercontent.com/datjandra/kupuna/refs/heads/main/images/logo.png")
     
