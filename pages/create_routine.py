@@ -9,8 +9,8 @@ from streamlit_player import st_player
 from style_helper import apply_header, card_container, apply_footer
 from database import get_all_exercises, insert_routine
 
-GEM_MODEL = 'models/gemini-1.5-flash' # os.getenv('models/gemini-1.5-flash')
-GOOGLE_API_KEY = 'AIzaSyA6MLJkBbAHaBwjpBEGwwa5kL2WKWRFqRQ' # os.getenv('AIzaSyA6MLJkBbAHaBwjpBEGwwa5kL2WKWRFqRQ')
+GEM_MODEL = 'models/gemini-1.5-flash'
+GOOGLE_API_KEY = 'AIzaSyA6MLJkBbAHaBwjpBEGwwa5kL2WKWRFqRQ'
 
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel(
@@ -211,9 +211,8 @@ def main():
             exercise_ids_string = ", ".join([str(exercise["id"]) for exercise in selected_exercises.values()])
             st.text_input("Selected Exercise IDs", value=exercise_ids_string, disabled=True, key="exercise_ids_display")
 
-            submit_button = st.form_submit_button(label="Save Routine", key="save_routine_btn")
-            
-            if submit_button:
+            # Corrected submit button implementation
+            if st.form_submit_button(label="Save Routine", key="save_routine_btn"):
                 if routine_name == "":
                     st.error("Routine name is required!")
                 else:                    
