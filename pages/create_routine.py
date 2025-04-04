@@ -212,13 +212,14 @@ def main():
             st.text_input("Selected Exercise IDs", value=exercise_ids_string, disabled=True, key="exercise_ids_display")
 
             # Corrected submit button implementation
-            if st.form_submit_button(label="Save Routine", key="save_routine_btn"):
-                if routine_name == "":
-                    st.error("Routine name is required!")
-                else:                    
-                    exercise_ids = [int(exercise["id"]) for exercise in selected_exercises.values()]
-                    insert_routine(routine_name, routine_description, music_field, exercise_ids)
-                    st.success(f'Routine {routine_name} has been created. Please click "Assign Routine" button to assign routine to a kūpuna.')
+            st.form_submit_button(label="Save Routine")
+            #if st.form_submit_button(label="Save Routine", key="save_routine_btn"):
+            #    if routine_name == "":
+            #        st.error("Routine name is required!")
+            #    else:                    
+            #        exercise_ids = [int(exercise["id"]) for exercise in selected_exercises.values()]
+            #        insert_routine(routine_name, routine_description, music_field, exercise_ids)
+            #        st.success(f'Routine {routine_name} has been created. Please click "Assign Routine" button to assign routine to a kūpuna.')
 
         apply_footer()
 
