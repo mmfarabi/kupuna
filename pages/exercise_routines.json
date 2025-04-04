@@ -3,29 +3,29 @@
         "5 minutes": [
             {
                 "id": 1,
-                "name": "Neck Stretch",
+                "title": "Neck Stretch",
                 "description": "Gently stretch your neck side to side.",
-                "video": "https://www.youtube.com/watch?v=abc123"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 2,
-                "name": "Shoulder Rolls",
+                "title": "Shoulder Rolls",
                 "description": "Roll your shoulders forward and backward.",
-                "video": "https://www.youtube.com/watch?v=def456"
+                "video_id": "koRbYQyPU0U"
             }
         ],
         "10 minutes": [
             {
                 "id": 3,
-                "name": "Leg Raises",
+                "title": "Leg Raises",
                 "description": "Raise your legs while seated.",
-                "video": "https://www.youtube.com/watch?v=ghi789"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 4,
-                "name": "Arm Circles",
+                "title": "Arm Circles",
                 "description": "Extend your arms and move them in circles.",
-                "video": "https://www.youtube.com/watch?v=jkl012"
+                "video_id": "koRbYQyPU0U"
             }
         ]
     },
@@ -33,29 +33,29 @@
         "5 minutes": [
             {
                 "id": 5,
-                "name": "Squats",
+                "title": "Squats",
                 "description": "Perform basic squats to strengthen legs.",
-                "video": "https://www.youtube.com/watch?v=mno345"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 6,
-                "name": "Toe Touches",
+                "title": "Toe Touches",
                 "description": "Bend down to touch your toes.",
-                "video": "https://www.youtube.com/watch?v=pqr678"
+                "video_id": "koRbYQyPU0U"
             }
         ],
         "10 minutes": [
             {
                 "id": 7,
-                "name": "Jumping Jacks",
+                "title": "Jumping Jacks",
                 "description": "Perform jumping jacks to boost cardio.",
-                "video": "https://www.youtube.com/watch?v=stu901"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 8,
-                "name": "Lunges",
+                "title": "Lunges",
                 "description": "Step forward into a lunge.",
-                "video": "https://www.youtube.com/watch?v=vwx234"
+                "video_id": "koRbYQyPU0U"
             }
         ]
     },
@@ -63,257 +63,257 @@
         "15 minutes": [
             {
                 "id": 9,
-                "name": "Push-ups",
+                "title": "Push-ups",
                 "description": "Perform push-ups to strengthen arms.",
-                "video": "https://www.youtube.com/watch?v=xyz567"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 10,
-                "name": "Planks",
+                "title": "Planks",
                 "description": "Hold a plank position for core strength.",
-                "video": "https://www.youtube.com/watch?v=abc890"
+                "video_id": "koRbYQyPU0U"
             }
         ],
         "20 minutes": [
             {
                 "id": 11,
-                "name": "Burpees",
+                "title": "Burpees",
                 "description": "A full-body exercise to improve endurance.",
-                "video": "https://www.youtube.com/watch?v=def123"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 12,
-                "name": "Mountain Climbers",
+                "title": "Mountain Climbers",
                 "description": "Engage your core with mountain climbers.",
-                "video": "https://www.youtube.com/watch?v=ghi456"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 13,
-                "name": "Exercise 13",
+                "title": "Exercise 13",
                 "description": "Description for Exercise 13",
-                "video": "https://www.youtube.com/watch?v=video13"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 14,
-                "name": "Exercise 14",
+                "title": "Exercise 14",
                 "description": "Description for Exercise 14",
-                "video": "https://www.youtube.com/watch?v=video14"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 15,
-                "name": "Exercise 15",
+                "title": "Exercise 15",
                 "description": "Description for Exercise 15",
-                "video": "https://www.youtube.com/watch?v=video15"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 16,
-                "name": "Exercise 16",
+                "title": "Exercise 16",
                 "description": "Description for Exercise 16",
-                "video": "https://www.youtube.com/watch?v=video16"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 17,
-                "name": "Exercise 17",
+                "title": "Exercise 17",
                 "description": "Description for Exercise 17",
-                "video": "https://www.youtube.com/watch?v=video17"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 18,
-                "name": "Exercise 18",
+                "title": "Exercise 18",
                 "description": "Description for Exercise 18",
-                "video": "https://www.youtube.com/watch?v=video18"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 19,
-                "name": "Exercise 19",
+                "title": "Exercise 19",
                 "description": "Description for Exercise 19",
-                "video": "https://www.youtube.com/watch?v=video19"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 20,
-                "name": "Exercise 20",
+                "title": "Exercise 20",
                 "description": "Description for Exercise 20",
-                "video": "https://www.youtube.com/watch?v=video20"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 21,
-                "name": "Exercise 21",
+                "title": "Exercise 21",
                 "description": "Description for Exercise 21",
-                "video": "https://www.youtube.com/watch?v=video21"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 22,
-                "name": "Exercise 22",
+                "title": "Exercise 22",
                 "description": "Description for Exercise 22",
-                "video": "https://www.youtube.com/watch?v=video22"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 23,
-                "name": "Exercise 23",
+                "title": "Exercise 23",
                 "description": "Description for Exercise 23",
-                "video": "https://www.youtube.com/watch?v=video23"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 24,
-                "name": "Exercise 24",
+                "title": "Exercise 24",
                 "description": "Description for Exercise 24",
-                "video": "https://www.youtube.com/watch?v=video24"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 25,
-                "name": "Exercise 25",
+                "title": "Exercise 25",
                 "description": "Description for Exercise 25",
-                "video": "https://www.youtube.com/watch?v=video25"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 26,
-                "name": "Exercise 26",
+                "title": "Exercise 26",
                 "description": "Description for Exercise 26",
-                "video": "https://www.youtube.com/watch?v=video26"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 27,
-                "name": "Exercise 27",
+                "title": "Exercise 27",
                 "description": "Description for Exercise 27",
-                "video": "https://www.youtube.com/watch?v=video27"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 28,
-                "name": "Exercise 28",
+                "title": "Exercise 28",
                 "description": "Description for Exercise 28",
-                "video": "https://www.youtube.com/watch?v=video28"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 29,
-                "name": "Exercise 29",
+                "title": "Exercise 29",
                 "description": "Description for Exercise 29",
-                "video": "https://www.youtube.com/watch?v=video29"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 30,
-                "name": "Exercise 30",
+                "title": "Exercise 30",
                 "description": "Description for Exercise 30",
-                "video": "https://www.youtube.com/watch?v=video30"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 31,
-                "name": "Exercise 31",
+                "title": "Exercise 31",
                 "description": "Description for Exercise 31",
-                "video": "https://www.youtube.com/watch?v=video31"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 32,
-                "name": "Exercise 32",
+                "title": "Exercise 32",
                 "description": "Description for Exercise 32",
-                "video": "https://www.youtube.com/watch?v=video32"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 33,
-                "name": "Exercise 33",
+                "title": "Exercise 33",
                 "description": "Description for Exercise 33",
-                "video": "https://www.youtube.com/watch?v=video33"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 34,
-                "name": "Exercise 34",
+                "title": "Exercise 34",
                 "description": "Description for Exercise 34",
-                "video": "https://www.youtube.com/watch?v=video34"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 35,
-                "name": "Exercise 35",
+                "title": "Exercise 35",
                 "description": "Description for Exercise 35",
-                "video": "https://www.youtube.com/watch?v=video35"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 36,
-                "name": "Exercise 36",
+                "title": "Exercise 36",
                 "description": "Description for Exercise 36",
-                "video": "https://www.youtube.com/watch?v=video36"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 37,
-                "name": "Exercise 37",
+                "title": "Exercise 37",
                 "description": "Description for Exercise 37",
-                "video": "https://www.youtube.com/watch?v=video37"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 38,
-                "name": "Exercise 38",
+                "title": "Exercise 38",
                 "description": "Description for Exercise 38",
-                "video": "https://www.youtube.com/watch?v=video38"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 39,
-                "name": "Exercise 39",
+                "title": "Exercise 39",
                 "description": "Description for Exercise 39",
-                "video": "https://www.youtube.com/watch?v=video39"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 40,
-                "name": "Exercise 40",
+                "title": "Exercise 40",
                 "description": "Description for Exercise 40",
-                "video": "https://www.youtube.com/watch?v=video40"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 41,
-                "name": "Exercise 41",
+                "title": "Exercise 41",
                 "description": "Description for Exercise 41",
-                "video": "https://www.youtube.com/watch?v=video41"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 42,
-                "name": "Exercise 42",
+                "title": "Exercise 42",
                 "description": "Description for Exercise 42",
-                "video": "https://www.youtube.com/watch?v=video42"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 43,
-                "name": "Exercise 43",
+                "title": "Exercise 43",
                 "description": "Description for Exercise 43",
-                "video": "https://www.youtube.com/watch?v=video43"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 44,
-                "name": "Exercise 44",
+                "title": "Exercise 44",
                 "description": "Description for Exercise 44",
-                "video": "https://www.youtube.com/watch?v=video44"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 45,
-                "name": "Exercise 45",
+                "title": "Exercise 45",
                 "description": "Description for Exercise 45",
-                "video": "https://www.youtube.com/watch?v=video45"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 46,
-                "name": "Exercise 46",
+                "title": "Exercise 46",
                 "description": "Description for Exercise 46",
-                "video": "https://www.youtube.com/watch?v=video46"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 47,
-                "name": "Exercise 47",
+                "title": "Exercise 47",
                 "description": "Description for Exercise 47",
-                "video": "https://www.youtube.com/watch?v=video47"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 48,
-                "name": "Exercise 48",
+                "title": "Exercise 48",
                 "description": "Description for Exercise 48",
-                "video": "https://www.youtube.com/watch?v=video48"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 49,
-                "name": "Exercise 49",
+                "title": "Exercise 49",
                 "description": "Description for Exercise 49",
-                "video": "https://www.youtube.com/watch?v=video49"
+                "video_id": "koRbYQyPU0U"
             },
             {
                 "id": 50,
-                "name": "Exercise 50",
+                "title": "Exercise 50",
                 "description": "Description for Exercise 50",
-                "video": "https://www.youtube.com/watch?v=video50"
+                "video_id": "koRbYQyPU0U"
             }
         ]
     }
