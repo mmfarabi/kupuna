@@ -9,8 +9,8 @@ from streamlit_player import st_player
 from style_helper import apply_header, card_container, apply_footer
 from database import get_all_exercises, insert_routine
 
-GEM_MODEL = os.getenv('GEM_MODEL')
-GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
+GEM_MODEL = os.getenv('models/gemini-1.5-flash')
+GOOGLE_API_KEY = os.getenv('AIzaSyA6MLJkBbAHaBwjpBEGwwa5kL2WKWRFqRQ')
 
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel(
