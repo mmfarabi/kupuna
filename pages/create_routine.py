@@ -22,8 +22,6 @@ model = genai.GenerativeModel(
     }
 )
 
-# Load exercise routines from the JSON file
-
 def load_exercise_data():
     try:
         with open("exercise_routines.json", "r") as file:
@@ -37,9 +35,6 @@ def load_exercise_data():
 
 exercise_data = load_exercise_data()
 
-# Dictionary of songs and their corresponding YouTube links
-#youtube_links = json.loads(os.getenv('YOUTUBE_LINKS'))
-
 @st.cache_data
 def generate_playlist(age, gender, ethnicity):
     PLAYLIST_PROMPT = os.getenv('PLAYLIST_PROMPT')
@@ -49,42 +44,36 @@ def generate_playlist(age, gender, ethnicity):
 
 @st.cache_data
 def normalize_text(text):
-    # Remove special characters and normalize spaces
     return re.sub(r"[\u2018\u2019\u02BB']", "", text).lower()
 
 def find_music_links(markdown_text):
     music_titles = []
-    
-    # Normalize markdown text for case-insensitive matching
     markdown_text_normalized = normalize_text(markdown_text)
 
-    # Search for song titles in the markdown text
     for title, video_id in exercise_data.items():
         normalized_title = normalize_text(title)
         if normalized_title in markdown_text_normalized:
-            # Print only if a match is found
             st.write(title)
-            st_player(f'https://www.youtube.com/watch?v={video_id}')
-            #st_player(f'https://www.youtube.com/watch?v={id}')
+            st_player(f'https://www.youtube.com/watch?v={video_id}', key=f"music_player_{video_id}")
             music_titles.append(title)
     return ", ".join(music_titles)
 
 def routine_select(exercise_data):
     left, right = st.columns(2)
-    # Mobility level selection
     with left:
         mobility_level = st.selectbox(
             "Mobility level:",
-            exercise_data.keys()
+            exercise_data.keys(),
+            key="mobility_level_select"
         )
 
     with right:
-    # Length of routine selection
         if mobility_level:
             lengths = exercise_data[mobility_level].keys()
             routine_length = st.selectbox(
                 "Routine length:",
-                lengths
+                lengths,
+                key="routine_length_select"
             )
 
     return mobility_level, routine_length
@@ -111,89 +100,77 @@ def main():
       </div>
       """, unsafe_allow_html=True)
 
-    # Load exercise routines
-    #exercise_data = get_all_exercises()
-    #exercise_data = json.load(open("exercise_routines.json"))
-
     st.sidebar.image("https://raw.githubusercontent.com/datjandra/kupuna/refs/heads/main/images/logo.png")
     
-    # Input fields for dementia subject's details
     st.sidebar.header("Kūpuna Details")
-    age = st.sidebar.number_input("Age", min_value=18, max_value=120, value=65, step=1)
-    gender = st.sidebar.radio("Gender", ["Kāne (Male)", "Wahine (Female)", "Other"])
+    age = st.sidebar.number_input("Age", min_value=18, max_value=120, value=65, step=1, key="age_input")
+    gender = st.sidebar.radio("Gender", ["Kāne (Male)", "Wahine (Female)", "Other"], key="gender_radio")
     ethnicity = st.sidebar.selectbox(
         "Race",
-        ["Caucasian", "Black", "Native Hawaiian or Pacific Islander", "Filipino", "Portuguese", "Japanese", "Chinese", "Other"]
+        ["Caucasian", "Black", "Native Hawaiian or Pacific Islander", "Filipino", 
+         "Portuguese", "Japanese", "Chinese", "Other"],
+        key="ethnicity_select"
     )
     if ethnicity == "Other":
-        other_ethnicity = st.sidebar.text_input("Please specify ethnicity")
+        other_ethnicity = st.sidebar.text_input("Please specify ethnicity", key="other_ethnicity")
         if other_ethnicity:
             ethnicity = other_ethnicity
     
-    # Display the selected details in the sidebar for review
     st.sidebar.markdown("### Kūpuna Summary")
     st.sidebar.markdown(f"**Age**: {age}")
     st.sidebar.markdown(f"**Gender**: {gender}")
     st.sidebar.markdown(f"**Race**: {ethnicity}")
 
-    # Mobility level selection
     mobility_level, routine_length = card_container(
         "routine_selection",
         routine_select,
         exercise_data
     )
     
-    # Dictionary to store selected exercises
     selected_exercises = {}
 
-    # Display routine based on selection
     if mobility_level and routine_length:
         st.header(f"Exercise Routine for {mobility_level} Mobility Level ({routine_length})")
         routine = exercise_data[mobility_level][routine_length]
     
-        # Loop through each section and allow caregivers to select an exercise
         for phase, exercises in routine.items():
-            st.subheader(phase)  # Display the phase name (e.g., "Warm-Up")
+            st.subheader(phase)
     
-            # Exercise options for the current phase
             options = exercises
             
-            # Create a radio button for the phase
             selected_exercise = st.radio(
                 label=f"Select an exercise for {phase}:",
                 options=options,
-                format_func=lambda x: x['name'] if x else "None",  # Show "None" if unselected
-                key=f"{mobility_level}-{routine_length}-{phase}"
+                format_func=lambda x: x['name'] if x else "None",
+                key=f"exercise_select_{mobility_level}_{routine_length}_{phase}"
             )
     
-            # Store the selected exercise
             selected_exercises[phase] = selected_exercise
     
-            # Create columns equal to the number of exercises
             columns = st.columns(len(exercises))
     
             for col, exercise in zip(columns, exercises):
                 with col:
-                    # Display the exercise name
                     st.markdown(f"**{exercise['name']}**")
-                    
-                    # Display the video
                     if (len(exercises) > 1):
-                        st_player(exercise['video'])
+                        st_player(
+                            exercise['video'], 
+                            key=f"exercise_player_{exercise['id']}_{phase}_col{columns.index(col)}"
+                        )
                     else:
                         _,center,_ = st.columns([1,2,1])
                         with center:
-                            st_player(exercise['video'])
+                            st_player(
+                                exercise['video'], 
+                                key=f"exercise_player_{exercise['id']}_{phase}_center"
+                            )
                         
-        # Button to generate exercise routine
-        if st.button("Create Routine"):
+        if st.button("Create Routine", key="create_routine_btn"):
             st.subheader("Generated Routine")
             all_sections_selected = all(value is not None for value in selected_exercises.values())
             if not all_sections_selected:
                 st.error("Please select one exercise from each section before generating the routine.")
             else:
-                
-                # Create columns for exercises and music
                 col1, col2 = st.columns(2)
         
                 with col1:
@@ -201,17 +178,20 @@ def main():
                     for section, exercise in selected_exercises.items():
                         st.markdown(f"**{section} - {exercise['name']}**")
                         st.markdown(f"*{exercise['description']}*")
-                        st.video(exercise['video'])
+                        st.video(
+                            exercise['video'], 
+                            format='video/mp4', 
+                            start_time=0,
+                            key=f"final_video_{exercise['id']}"
+                        )
         
                 with col2:
                     st.markdown("### 🎵 Therapeutic Music")
-    
-                    # Subject Demographics Section
                     st.markdown("#### 👤 Kūpuna Details")
                     st.markdown(f"- **Age**: {age}")
                     st.markdown(f"- **Gender**: {gender}")
                     st.markdown(f"- **Race**: {ethnicity}")
-                    st.divider()  # Adds a horizontal divider for better structure
+                    st.divider()
 
                     st.markdown("#### 🎶 Music Titles")
                     playlist = generate_playlist(age, gender, ethnicity)
@@ -222,25 +202,16 @@ def main():
                     music_titles = find_music_links(playlist)
                     st.session_state["music_titles"] = music_titles
         
-        # Form below the routine generation button
         with st.form(key="routine_form"):
             st.subheader("Routine Details")
-        
-            # Routine name input field (required)
-            routine_name = st.text_input("Routine Name", "")
+            routine_name = st.text_input("Routine Name", "", key="routine_name")
+            routine_description = st.text_area("Routine Description (Optional)", "", key="routine_desc")
+            music_field = st.text_input("Suggested Music", st.session_state.get("music_titles", ""), key="music_input")
 
-            # Description field (optional)
-            routine_description = st.text_area("Routine Description (Optional)", "")
-            
-            # Optional music field (optional)
-            music_field = st.text_input("Suggested Music", st.session_state.get("music_titles", ""))
-        
-            # Read-only field for selected exercise IDs
             exercise_ids_string = ", ".join([str(exercise["id"]) for exercise in selected_exercises.values()])
-            st.text_input("Selected Exercise IDs", value=exercise_ids_string, disabled=True)
+            st.text_input("Selected Exercise IDs", value=exercise_ids_string, disabled=True, key="exercise_ids_display")
 
-            # Submit button for the form
-            submit_button = st.form_submit_button(label="Save Routine")
+            submit_button = st.form_submit_button(label="Save Routine", key="save_routine_btn")
             
             if submit_button:
                 if routine_name == "":
