@@ -1,0 +1,320 @@
+{
+    "Beginner": {
+        "5 minutes": [
+            {
+                "id": 1,
+                "title": "Neck Stretch",
+                "description": "Gently stretch your neck side to side.",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 2,
+                "title": "Shoulder Rolls",
+                "description": "Roll your shoulders forward and backward.",
+                "video_id": "koRbYQyPU0U"
+            }
+        ],
+        "10 minutes": [
+            {
+                "id": 3,
+                "title": "Leg Raises",
+                "description": "Raise your legs while seated.",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 4,
+                "title": "Arm Circles",
+                "description": "Extend your arms and move them in circles.",
+                "video_id": "koRbYQyPU0U"
+            }
+        ]
+    },
+    "Intermediate": {
+        "5 minutes": [
+            {
+                "id": 5,
+                "title": "Squats",
+                "description": "Perform basic squats to strengthen legs.",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 6,
+                "title": "Toe Touches",
+                "description": "Bend down to touch your toes.",
+                "video_id": "koRbYQyPU0U"
+            }
+        ],
+        "10 minutes": [
+            {
+                "id": 7,
+                "title": "Jumping Jacks",
+                "description": "Perform jumping jacks to boost cardio.",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 8,
+                "title": "Lunges",
+                "description": "Step forward into a lunge.",
+                "video_id": "koRbYQyPU0U"
+            }
+        ]
+    },
+    "Advanced": {
+        "15 minutes": [
+            {
+                "id": 9,
+                "title": "Push-ups",
+                "description": "Perform push-ups to strengthen arms.",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 10,
+                "title": "Planks",
+                "description": "Hold a plank position for core strength.",
+                "video_id": "koRbYQyPU0U"
+            }
+        ],
+        "20 minutes": [
+            {
+                "id": 11,
+                "title": "Burpees",
+                "description": "A full-body exercise to improve endurance.",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 12,
+                "title": "Mountain Climbers",
+                "description": "Engage your core with mountain climbers.",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 13,
+                "title": "Exercise 13",
+                "description": "Description for Exercise 13",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 14,
+                "title": "Exercise 14",
+                "description": "Description for Exercise 14",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 15,
+                "title": "Exercise 15",
+                "description": "Description for Exercise 15",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 16,
+                "title": "Exercise 16",
+                "description": "Description for Exercise 16",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 17,
+                "title": "Exercise 17",
+                "description": "Description for Exercise 17",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 18,
+                "title": "Exercise 18",
+                "description": "Description for Exercise 18",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 19,
+                "title": "Exercise 19",
+                "description": "Description for Exercise 19",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 20,
+                "title": "Exercise 20",
+                "description": "Description for Exercise 20",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 21,
+                "title": "Exercise 21",
+                "description": "Description for Exercise 21",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 22,
+                "title": "Exercise 22",
+                "description": "Description for Exercise 22",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 23,
+                "title": "Exercise 23",
+                "description": "Description for Exercise 23",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 24,
+                "title": "Exercise 24",
+                "description": "Description for Exercise 24",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 25,
+                "title": "Exercise 25",
+                "description": "Description for Exercise 25",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 26,
+                "title": "Exercise 26",
+                "description": "Description for Exercise 26",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 27,
+                "title": "Exercise 27",
+                "description": "Description for Exercise 27",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 28,
+                "title": "Exercise 28",
+                "description": "Description for Exercise 28",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 29,
+                "title": "Exercise 29",
+                "description": "Description for Exercise 29",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 30,
+                "title": "Exercise 30",
+                "description": "Description for Exercise 30",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 31,
+                "title": "Exercise 31",
+                "description": "Description for Exercise 31",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 32,
+                "title": "Exercise 32",
+                "description": "Description for Exercise 32",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 33,
+                "title": "Exercise 33",
+                "description": "Description for Exercise 33",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 34,
+                "title": "Exercise 34",
+                "description": "Description for Exercise 34",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 35,
+                "title": "Exercise 35",
+                "description": "Description for Exercise 35",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 36,
+                "title": "Exercise 36",
+                "description": "Description for Exercise 36",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 37,
+                "title": "Exercise 37",
+                "description": "Description for Exercise 37",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 38,
+                "title": "Exercise 38",
+                "description": "Description for Exercise 38",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 39,
+                "title": "Exercise 39",
+                "description": "Description for Exercise 39",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 40,
+                "title": "Exercise 40",
+                "description": "Description for Exercise 40",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 41,
+                "title": "Exercise 41",
+                "description": "Description for Exercise 41",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 42,
+                "title": "Exercise 42",
+                "description": "Description for Exercise 42",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 43,
+                "title": "Exercise 43",
+                "description": "Description for Exercise 43",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 44,
+                "title": "Exercise 44",
+                "description": "Description for Exercise 44",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 45,
+                "title": "Exercise 45",
+                "description": "Description for Exercise 45",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 46,
+                "title": "Exercise 46",
+                "description": "Description for Exercise 46",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 47,
+                "title": "Exercise 47",
+                "description": "Description for Exercise 47",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 48,
+                "title": "Exercise 48",
+                "description": "Description for Exercise 48",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 49,
+                "title": "Exercise 49",
+                "description": "Description for Exercise 49",
+                "video_id": "koRbYQyPU0U"
+            },
+            {
+                "id": 50,
+                "title": "Exercise 50",
+                "description": "Description for Exercise 50",
+                "video_id": "koRbYQyPU0U"
+            }
+        ]
+    }
+}
