@@ -29,7 +29,7 @@ with open("exercise_routines.json", "r") as file:
     exercise_data = json.load(file)
 
 # Dictionary of songs and their corresponding YouTube links
-#youtube_links = json.loads(os.getenv('YOUTUBE_LINKS'))
+youtube_links = json.loads(os.getenv('YOUTUBE_LINKS'))
 
 @st.cache_data
 def generate_playlist(age, gender, ethnicity):
